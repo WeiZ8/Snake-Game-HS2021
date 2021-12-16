@@ -64,7 +64,7 @@ def main_menu():
         # Do the job here !
         pass
 
-    menu = pygame_menu.Menu(width=dis_width, height=dis_height, title='Welcome',
+    menu = pygame_menu.Menu(width=DIS_WIDTH, height=DIS_HEIGHT, title='Welcome',
         theme=pygame_menu.themes.THEME_DARK);
 
     menu.add.text_input('Name : ', default='John Doe')
