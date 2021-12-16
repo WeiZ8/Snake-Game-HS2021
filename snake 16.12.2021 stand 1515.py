@@ -200,11 +200,11 @@ def gameLoop():
 
         #the display screen is changed from the default black to blue using the fill() method.
         dis.fill(BLUE)
-        pygame.draw.rect(dis, red, pygame.Rect(foodx, foody,snake_block, snake_block),40, 5)
+        pygame.draw.rect(dis, RED, pygame.Rect(foodx, foody,snake_block, snake_block),40, 5)
         ##task 2 from Deniz: obstacle need to be drawn
-        pygame.draw.rect(dis, black, [obstaclex, obstacley, snake_block, snake_block])
+        pygame.draw.rect(dis, BLACK, [obstaclex, obstacley, snake_block, snake_block])
         #new: this creates the special food. 
-        #pygame.draw.rect(dis, yellow, pygame.Rect(specialfoodx, specialfoody,snake_block, snake_block),40, 5)
+        #pygame.draw.rect(dis, YELLOW, pygame.Rect(specialfoodx, specialfoody,snake_block, snake_block),40, 5)
         
         
                 #PH: we always draw all special foods that are not older than 10s
