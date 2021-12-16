@@ -23,7 +23,7 @@ pygame.init()
 
 #The color scheme used in Pygame is RGB i.e “Red Green Blue”. If we set all these to 0’s, the color will be black and all 255’s will be white. Here we have defined a view colors.
 
-red = (175, 0, 42)
+RED = (175, 0, 42)
 blue = (240, 248, 255)
 darkblue = (61, 90, 110)
 darkerblue = (0, 128, 0)
