@@ -226,6 +226,8 @@ def gameLoop():
  
   #new: the special food pops up on the display at random locations. 
         if x1 == specialfoodx and y1 == specialfoody:
+            ding_Sound = mixer.Sound('Ding.mp3')
+            ding_Sound.play()
             specialfoodx = round(random.randrange(40 , dis_width - 40) / 10.0) * 10.0
             specialfoody = round(random.randrange(40 , dis_height - 40) / 10.0) * 10.0
             #if this special food is eaten the extra 5 points will be added to the score
