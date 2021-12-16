@@ -183,11 +183,11 @@ def gameLoop():
 
         #the display screen is changed from the default black to blue using the fill() method.
         dis.fill(blue)
-        pygame.draw.circle(dis, red, (foodx, foody), 6,6)
+        pygame.draw.rect(dis, red, pygame.Rect(foodx, foody,snake_block, snake_block),40, 5)
         ##task 2 from Deniz: obstacle need to be drawn
         pygame.draw.rect(dis, black, [obstaclex, obstacley, snake_block, snake_block])
         #new: this creates the special food. 
-        pygame.draw.circle(dis, yellow, (specialfoodx, specialfoody), 6,6)
+        pygame.draw.rect(dis, yellow, pygame.Rect(specialfoodx, specialfoody,snake_block, snake_block),40, 5)
         snake_Head = []
 
 
