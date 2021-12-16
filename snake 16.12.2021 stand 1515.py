@@ -24,19 +24,19 @@ pygame.init()
 #The color scheme used in Pygame is RGB i.e “Red Green Blue”. If we set all these to 0’s, the color will be black and all 255’s will be white. Here we have defined a view colors.
 
 RED = (175, 0, 42)
-blue = (240, 248, 255)
-darkblue = (61, 90, 110)
-darkerblue = (0, 128, 0)
-yellow = (255, 165, 0)
-black = (0, 0, 0)
+BLUE = (240, 248, 255)
+DARKBLUE = (61, 90, 110)
+DARKERBLUE = (0, 128, 0)
+YELLOW = (255, 165, 0)
+BLACK = (0, 0, 0)
 
 
 #Next we create the screen. For that we define the width and the height of the screen. 
-dis_width = 800
-dis_height = 600
+DIS_WIDTH = 800
+DIS_HEIGHT = 600
 
 #To create an actually screen with Pygame we make use of the display.set_mode() function. At the same time we use the above defined width and height. 
-dis = pygame.display.set_mode((dis_width, dis_height))
+dis = pygame.display.set_mode((DIS_WIDTH, DIS_HEIGHT))
 #We want to give the pygame window the name "Snake Game". This is done by using the code below. 
 pygame.display.set_caption('Snake Game')
 
@@ -74,7 +74,7 @@ def main_menu():
 
 
 
- # End manu
+ # End menu
 def show_end_screen(game_score, display_width, display_height, replay, window):
   end_menu = pygame_menu.Menu(width=display_width, height=display_height, title='Game Over', 
 theme=pygame_menu.themes.THEME_DARK);
@@ -86,7 +86,7 @@ theme=pygame_menu.themes.THEME_DARK);
  
 #XXX 
 def Your_score(score):
-    value = score_font.render("Your Score: " + str(score), True, darkblue)
+    value = score_font.render("Your Score: " + str(score), True, DARKBLUE)
     dis.blit(value, [0, 0])
    
  
@@ -94,12 +94,12 @@ def Your_score(score):
 #XXXmore explanation why we use for x in snake list and 
 def our_snake(snake_block, snake_list):
     for x in snake_list:
-        pygame.draw.rect(dis, darkerblue, [x[0], x[1], snake_block, snake_block])
+        pygame.draw.rect(dis, DARKERBLUE, [x[0], x[1], snake_block, snake_block])
  
  
 def message(msg, color):
     mesg = font_style.render(msg, True, color)
-    dis.blit(mesg, [dis_width / 6, dis_height / 3])
+    dis.blit(mesg, [DIS_WIDTH / 6, DIS_HEIGHT / 3])
     
 #Samu part
 def show_end_screen(game_score, display_width, display_height, replay, window):
@@ -115,8 +115,8 @@ def gameLoop():
     game_over = False
     game_close = False
  
-    x1 = dis_width / 2
-    y1 = dis_height / 2
+    x1 = DIS_WIDTH / 2
+    y1 = DIS_HEIGHT / 2
 
 # The variables x1_change and y1_change hold the updating values of the x and y coordinates.  
     x1_change = 0
@@ -139,23 +139,23 @@ def gameLoop():
  
  #The snake game includes food for the snake. So the food needs to be first created. 
  #xxx more explanation needed
-    foodx = round(random.randrange(40, dis_width - 40) / 10.0) * 10.0
-    foody = round(random.randrange(40, dis_height - 40) / 10.0) * 10.0
+    foodx = round(random.randrange(40, DIS_WIDTH - 40) / 10.0) * 10.0
+    foody = round(random.randrange(40, DIS_HEIGHT - 40) / 10.0) * 10.0
     
  ##task1 from Deniz: obstacle needs to be defined
-    obstaclex = round(random.randrange (40 , dis_width - 40) / 10.0) * 10.0
-    obstacley = round(random.randrange(40, dis_height - 40) / 10.0) * 10.0
+    obstaclex = round(random.randrange (40 , DIS_WIDTH - 40) / 10.0) * 10.0
+    obstacley = round(random.randrange(40, DIS_HEIGHT - 40) / 10.0) * 10.0
 
  #new: In our snake game we added some special food as well. It will pop up randomly, the snake has a few seconds to eat it and if eaten the snake will get faster. 
  #noch einfügen, dass special food nur ab und zu mal auftaucht. und nicht immer. 
-    specialfoodx = round(random.randrange(40 , dis_width - 40) / 10.0) * 10.0
-    specialfoody = round(random.randrange(40, dis_height - 40) / 10.0) * 10.0 
+    specialfoodx = round(random.randrange(40 , DIS_WIDTH - 40) / 10.0) * 10.0
+    specialfoody = round(random.randrange(40, DIS_HEIGHT - 40) / 10.0) * 10.0 
 
     while not game_over:
  
         while game_close == True:
             #the display screen is changed from the default black to blue using the fill() method.
-            show_end_screen(str(Length_of_snake-1), dis_width, dis_height, gameLoop, dis)
+            show_end_screen(str(Length_of_snake-1), DIS_WIDTH, DIS_HEIGHT, gameLoop, dis)
            
             #We want to display the score of the player. To do this, we created the function “Your_score”. This function will display the length of the snake subtracted by 1 because that is the initial size of the snake.
             Your_score(Length_of_snake - 1 + extra_points)
@@ -199,7 +199,7 @@ def gameLoop():
         y1 += y1_change
 
         #the display screen is changed from the default black to blue using the fill() method.
-        dis.fill(blue)
+        dis.fill(BLUE)
         pygame.draw.rect(dis, red, pygame.Rect(foodx, foody,snake_block, snake_block),40, 5)
         ##task 2 from Deniz: obstacle need to be drawn
         pygame.draw.rect(dis, black, [obstaclex, obstacley, snake_block, snake_block])
@@ -216,7 +216,7 @@ def gameLoop():
             if time_delta.seconds > SPECIAL_FOOD_LIFETIME:
                 continue
             else:   
-                pygame.draw.rect(dis, yellow, pygame.Rect(specialfoodx, specialfoody,snake_block, snake_block),40, 5)
+                pygame.draw.rect(dis, YELLOW, pygame.Rect(specialfoodx, specialfoody,snake_block, snake_block),40, 5)
         
         #PH: Should we generate new special food?
         # 1 in 3 chances every 2 seconds
@@ -225,8 +225,8 @@ def gameLoop():
         #PH 1 in 3 chances that special food spawns
         if  rnd == 1 and time_delta.seconds >SPECIAL_FOOD_BACKOFF and len(spc_foods)<= MAX_SPECIAL_FOOD_COUNT:
             last_specialfood_time = datetime.datetime.now()
-            specialfoodx = round(random.randrange(0, dis_width - snake_block) / 10.0) * 10.0
-            specialfoody = round(random.randrange(0, dis_height - snake_block) / 10.0) * 10.0 
+            specialfoodx = round(random.randrange(0, DIS_WIDTH - snake_block) / 10.0) * 10.0
+            specialfoody = round(random.randrange(0, DIS_HEIGHT - snake_block) / 10.0) * 10.0 
             spc_foods.append([specialfoodx, specialfoody, last_specialfood_time])
         
         
@@ -258,14 +258,14 @@ def gameLoop():
             #sound integration
             ding_Sound = mixer.Sound('Ding.mp3')
             ding_Sound.play()
-            foodx = round(random.randrange(40 , dis_width - 40) / 10.0) * 10.0
-            foody = round(random.randrange(40 , dis_height - 40) / 10.0) * 10.0
+            foodx = round(random.randrange(40 , DIS_WIDTH - 40) / 10.0) * 10.0
+            foody = round(random.randrange(40 , DIS_HEIGHT - 40) / 10.0) * 10.0
             Length_of_snake += 1
             
   ##task 3 from Deniz: in case snake eats obstacle snake dies
         if x1 == obstaclex and y1 == obstacley:
-            foodx = round(random.randrange(40 , dis_width - 40) / 10.0) * 10.0
-            foody = round(random.randrange(40 , dis_height - 40) / 10.0) * 10.0
+            foodx = round(random.randrange(40 , DIS_WIDTH - 40) / 10.0) * 10.0
+            foody = round(random.randrange(40 , DIS_HEIGHT - 40) / 10.0) * 10.0
             game_close = True
             #sound integration
             game_over_Sound = mixer.Sound('game_over.mp3')
@@ -275,8 +275,8 @@ def gameLoop():
         if x1 == specialfoodx and y1 == specialfoody:
             ding_Sound = mixer.Sound('Ding.mp3')
             ding_Sound.play()
-            specialfoodx = round(random.randrange(40 , dis_width - 40) / 10.0) * 10.0
-            specialfoody = round(random.randrange(40 , dis_height - 40) / 10.0) * 10.0
+            specialfoodx = round(random.randrange(40 , DIS_WIDTH - 40) / 10.0) * 10.0
+            specialfoody = round(random.randrange(40 , DIS_HEIGHT - 40) / 10.0) * 10.0
             #if this special food is eaten the extra 5 points will be added to the score
             extra_points += 3
             Length_of_snake += 5
