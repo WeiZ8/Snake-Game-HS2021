@@ -178,6 +178,9 @@ def gameLoop():
         #if players hits the boundaries of the screen, then they lose. The ‘if’ statement defines the limits for the x and y coordinates of the snake to be less than or equal to that of the screen.
         if x1 >= dis_width or x1 < 0 or y1 >= dis_height or y1 < 0:
             game_close = True
+            #sound integration
+            game_over_Sound = mixer.Sound('game_over.mp3')
+            game_over_Sound.play()
         x1 += x1_change
         y1 += y1_change
 
@@ -201,8 +204,8 @@ def gameLoop():
         for x in snake_List[:-1]:
             if x == snake_Head:
                 #sound integration
-                ding_Sound = mixer.Sound('Ding.mp3')
-                ding_Sound.play()
+                game_over_Sound = mixer.Sound('game_over.mp3')
+                game_over_Sound.play()
                 game_close = True
  
         our_snake(snake_block, snake_List)
@@ -223,6 +226,9 @@ def gameLoop():
             foodx = round(random.randrange(40 , dis_width - 40) / 10.0) * 10.0
             foody = round(random.randrange(40 , dis_height - 40) / 10.0) * 10.0
             game_close = True
+            #sound integration
+            game_over_Sound = mixer.Sound('game_over.mp3')
+            game_over_Sound.play()
  
   #new: the special food pops up on the display at random locations. 
         if x1 == specialfoodx and y1 == specialfoody:
