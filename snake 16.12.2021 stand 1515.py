@@ -190,7 +190,7 @@ def gameLoop():
         clock.tick(snake_speed_general)        
 
         #if players hits the boundaries of the screen, then they lose. The ‘if’ statement defines the limits for the x and y coordinates of the snake to be less than or equal to that of the screen.
-        if x1 >= dis_width or x1 < 0 or y1 >= dis_height or y1 < 0:
+        if x1 >= DIS_WIDTH or x1 < 0 or y1 >= DIS_HEIGHT or y1 < 0:
             game_close = True
             #sound integration
             game_over_Sound = mixer.Sound('game_over.mp3')
