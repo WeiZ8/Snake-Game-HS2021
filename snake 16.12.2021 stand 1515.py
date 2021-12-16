@@ -100,16 +100,7 @@ def our_snake(snake_block, snake_list):
 def message(msg, color):
     mesg = font_style.render(msg, True, color)
     dis.blit(mesg, [DIS_WIDTH / 6, DIS_HEIGHT / 3])
-    
-#Samu part
-def show_end_screen(game_score, display_width, display_height, replay, window):
-  end_menu = pygame_menu.Menu(width=display_width, height=display_height, title='Game Over', 
-theme=pygame_menu.themes.THEME_DARK);
-  end_menu.add.label("Your Score:" + str(game_score))
-  end_menu.add.button("Replay Game", replay)
-  end_menu.add.button("Quit Game", pygame_menu.events.EXIT)
-  end_menu.mainloop(window)    
- 
+       
 
 def gameLoop():
     game_over = False
