@@ -36,4 +36,5 @@ The following programs were used to analyse and test the code:
 
 The following packages are required to run the code: 
 * pygame, pygame-menu, time, datetime, sys, random
+
 In case these packages are not installed yet. Please run “pip install” for each package.
