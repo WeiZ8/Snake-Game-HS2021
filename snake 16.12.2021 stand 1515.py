@@ -76,12 +76,12 @@ def main_menu():
 
  # End menu
 def show_end_screen(game_score, DIS_WIDTH, DIS_HEIGHT, replay, window):
-  end_menu = pygame_menu.Menu(width=DIS_WIDTH, height=DIS_HEIGHT, title='Game Over', 
-theme=pygame_menu.themes.THEME_DARK);
-  end_menu.add.label("Your Score: " + str(game_score), font_name = font_menu)
-  end_menu.add.button("Replay Game", replay, font_name = font_menu)
-  end_menu.add.button("Quit Game", pygame_menu.events.EXIT, font_name = font_menu)
-  end_menu.mainloop(window)
+   end_menu = pygame_menu.Menu(width=DIS_WIDTH, height=DIS_HEIGHT, title='Game Over', 
+   theme=pygame_menu.themes.THEME_DARK);
+   end_menu.add.label("Your Score: " + str(game_score), font_name = font_menu)
+   end_menu.add.button("Replay Game", replay, font_name = font_menu)
+   end_menu.add.button("Quit Game", pygame_menu.events.EXIT, font_name = font_menu)
+   end_menu.mainloop(window)
        
  
 #XXX 
