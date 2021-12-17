@@ -223,13 +223,9 @@ def gameLoop():
             specialfoody = round(random.randrange(0, DIS_HEIGHT - snake_block) / 10.0) * 10.0 
             spc_foods.append([specialfoodx, specialfoody, last_specialfood_time])
         
-        
-        snake_Head = []
-        
-        
-
 
         #The following code increases the size of the snake when it eats the food. The length of the snake is basically contained in a list and the initial size that is specified in the following code is one block.
+        snake_Head = []
         snake_Head.append(x1)
         snake_Head.append(y1)
         snake_List.append(snake_Head)
