@@ -152,13 +152,6 @@ def gameLoop():
             Your_score(Length_of_snake - 1 + extra_points)
             pygame.display.update()
  
-            for event in pygame.event.get():
-                if event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_q:
-                        game_over = True
-                        game_close = False
-                    if event.key == pygame.K_c:
-                        gameLoop()
 
  #To move the snake, we use the key events present in the KEYDOWN class of Pygame. The events that are used over here are K_UP, K_DOWN, K_LEFT, and K_RIGHT to make the snake move up, down, left and right respectively. 
         for event in pygame.event.get():
