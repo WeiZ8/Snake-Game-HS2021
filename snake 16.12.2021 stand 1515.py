@@ -29,24 +29,24 @@ Please run “pip install” for each package. In case pip is not installed yet,
 
 #Import the necessary libararies
 
-#pygame is a programming language library in python with which games can be programed. So first of all we do import pygame. 
+#Pygame is a programming language library in python with which games can be programed. Import pygame to get started 
 import pygame
 from pygame import mixer
 import pygame_menu
 
-#We import the time module so that we can set the speed for the snake. 
+#Import time module to set the speed for the snake
 import time
 
-#PH for time measurement
+#Import datetime for time measurement
 import datetime
 
-#We import the random module so that the food which the snake eats will appear at random locations on the display.
+#Import the random module so that the food which the snake eats will appear at random locations on the display.
 import sys, random
 
 #Before we can do much with pygame, we  need to initialize it. This is done by pygame.init() which initializes all imported pygame modules. 
 pygame.init()
 
-#The color scheme used in Pygame is RGB i.e “Red Green Blue”. If we set all these to 0’s, the color will be black and all 255’s will be white. Here we have defined a view colors.
+#The color scheme used in Pygame is RGB i.e “Red Green Blue”. If we set all these to 0’s, the color will be black and all 255’s will be white. Here we have defined a few colors.
 
 RED = (175, 0, 42)
 BLUE = (240, 248, 255)
@@ -143,29 +143,24 @@ def gameLoop():
     extra_points = 0
     
 
-    #PH: added this
+    #PH: Define the time related to the randomized appearance of the specialfood
     last_specialfood_time = datetime.datetime.now()
     spc_foods = []
     SPECIAL_FOOD_LIFETIME = 5 #seconds, if SPECIAL_FOOD_LIFETIME <= SPECIAL_FOOD_BACKOFF, we might not have multiple special foods at same time
     SPECIAL_FOOD_BACKOFF = 10 #seconds, how much time between two special foods spawns
     SPECIAL_FOOD_SPAWN_CHANCES = 1 #1/SPECIAL_FOOD_SPAWN_CHANCES to spawn, given time is bigger than backoff
-    MAX_SPECIAL_FOOD_COUNT = 1 #maximum amount of speical foods we want, at any given time
+    MAX_SPECIAL_FOOD_COUNT = 1 #maximum amount of special foods we want, at any given time
     
-
- 
- #The snake game includes food for the snake. So the food needs to be first created. 
- #xxx more explanation needed
+    #The snake game includes food for the snake. So the food needs to be first created. 
+    #Define the randomized apperance of the food items within the display and its size
     foodx = round(random.randrange(40, DIS_WIDTH - 40) / 10.0) * 10.0
     foody = round(random.randrange(40, DIS_HEIGHT - 40) / 10.0) * 10.0
-    
+    specialfoodx = round(random.randrange(40 , DIS_WIDTH - 40) / 10.0) * 10.0
+    specialfoody = round(random.randrange(40, DIS_HEIGHT - 40) / 10.0) * 10.0 
+   
  ##task1 from Deniz: obstacle needs to be defined
     obstaclex = round(random.randrange (40 , DIS_WIDTH - 40) / 10.0) * 10.0
     obstacley = round(random.randrange(40, DIS_HEIGHT - 40) / 10.0) * 10.0
-
- #new: In our snake game we added some special food as well. It will pop up randomly, the snake has a few seconds to eat it and if eaten the snake will get faster. 
- #noch einfügen, dass special food nur ab und zu mal auftaucht. und nicht immer. 
-    specialfoodx = round(random.randrange(40 , DIS_WIDTH - 40) / 10.0) * 10.0
-    specialfoody = round(random.randrange(40, DIS_HEIGHT - 40) / 10.0) * 10.0 
 
     while not game_over:
  
@@ -209,14 +204,15 @@ def gameLoop():
 
         #the display screen is changed from the default black to blue using the fill() method.
         dis.fill(BLUE)
-        pygame.draw.rect(dis, RED, pygame.Rect(foodx, foody,snake_block, snake_block),40, 5)
+        
         ##task 2 from Deniz: obstacle need to be drawn
         pygame.draw.rect(dis, BLACK, [obstaclex, obstacley, snake_block, snake_block])
-        #new: this creates the special food. 
-        #pygame.draw.rect(dis, YELLOW, pygame.Rect(specialfoodx, specialfoody,snake_block, snake_block),40, 5)
         
-        
-                #PH: we always draw all special foods that are not older than 10s
+        #the food is created, colored and shaped 
+        pygame.draw.rect(dis, RED, pygame.Rect(foodx, foody,snake_block, snake_block),40, 5)
+       
+        #this is created for the special food.
+        #PH: we always draw all special foods that are not older than 10s
         for fd in spc_foods:
             special_food_x = fd[0]
             special_food_y = fd[1]
@@ -259,12 +255,14 @@ def gameLoop():
  
         pygame.display.update()
  
+        # foods pop up randomly within the window and adds to the length of the snake after being eaten
         if x1 == foodx and y1 == foody:
             #sound integration
             ding_Sound = mixer.Sound('Ding.mp3')
             ding_Sound.play()
             foodx = round(random.randrange(40 , DIS_WIDTH - 40) / 10.0) * 10.0
             foody = round(random.randrange(40 , DIS_HEIGHT - 40) / 10.0) * 10.0
+            # if food is eaten, it increases the length by 1 block
             Length_of_snake += 1
             
   ##task 3 from Deniz: in case snake eats obstacle snake dies
@@ -276,13 +274,14 @@ def gameLoop():
             game_over_Sound = mixer.Sound('game_over.mp3')
             game_over_Sound.play()
  
-  #new: the special food pops up on the display at random locations. 
+        #the special food pops up on the display at random locations. 
         if x1 == specialfoodx and y1 == specialfoody:
+            #sound integration
             ding_Sound = mixer.Sound('Ding.mp3')
             ding_Sound.play()
             specialfoodx = round(random.randrange(40 , DIS_WIDTH - 40) / 10.0) * 10.0
             specialfoody = round(random.randrange(40 , DIS_HEIGHT - 40) / 10.0) * 10.0
-            #if this special food is eaten the extra 5 points will be added to the score
+            #if this special food is eaten the extra 3 points will be added to the score and increases the length of the snake by 5 blocks
             extra_points += 3
             Length_of_snake += 5
 
