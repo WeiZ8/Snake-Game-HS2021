@@ -3,15 +3,15 @@
 '''
 About the Project
 
-This project aims to build a simple and fun “Snake” game with some individualized features using the programming language Python. Snake is a bordered plane game, designed in the time of the arcade game blockade in the late 1970ies. The game design is set up to maneuver a dot, and later a line in direction of tokens. The tokens have the impact of making the line grow in length. The objective of the game is to eat as many tokens as possible. At the same time the player must not touch the walls, obstacle, or collide with the players avatar. Else the game ends and the player is attempt anew. 
+This project aims to build a simple and fun “Snake” game with some individualized features using the programming language Python. Snake is a bordered plane game, designed in the time of the arcade game blockade in the late 1970ies. The game design is set up to maneuver a dot, and later a line in direction of tokens. The tokens have the impact of making the line grow in length. The objective of the game is to eat as many tokens as possible. At the same time, the player must not touch the walls, the obstacle, or collide with the player's avatar. Else the game ends and the player is attempt anew. 
 
-We will be using Pygame and pygame.menu to create this game. PyGame is an open-source library that is designed for making video games. It has inbuilt graphics and sound libraries. It is also beginner-friendly, and is suitable for cross-platform games.
+We will be using Pygame and pygame.menu to create this game. PyGame is an open-source library that is designed for making video games. It has inbuilt graphics and sound libraries. It is also beginner-friendly and is suitable for cross-platform games.
 
-The game starts with a title screen where it is possible for the user to enter their name and refer to the instructions if needed. In order to start the game the player has to press “start” or press “quit” if they wish to leave the game.
+The game starts with a title screen where the user can enter their name and refer to the instructions if needed. To start the game the player has to press “start” or press “quit” if they wish to leave the game.
 
-The gaming interface shows the score at the top left corner. To play the game the user navigates the snake, which is the green block, with the arrow keys. There are three additional features on the screen. First are the obstacles which colored in black and should be avoided. The other two features are the two types of “food” added to the game. Starting with the regular red food item that increases the length of the body by one block and the score by 1 point after being eaten. The other is a special item that appears randomly after 15 seconds. The yellow food block increases the length of the snake by 5 blocks but also increases the score by three extra points. A sound effect is played once a food item is eaten or when the snake collides with the obstacle, the wall or itself.
+The gaming interface shows the score at the top left corner. To play the game the user navigates the snake, which is the green block, with the arrow keys. There are three additional features on the screen. First are the obstacles which are colored in black and should be avoided. The other two features are the two types of “food” added to the game. Starting with the regular red food item that increases the length of the body by one block and the score by 1 point after being eaten. The other is a special item that appears randomly after 15 seconds. The yellow food block increases the length of the snake by 5 blocks but also increases the score by three extra points. A sound effect is played once a food item is eaten or when the snake collides with the obstacle, the wall, or itself.
 
-Once you run into an obstacle, the boarder or the avatar itself, the game over screen pops up and shows the currently reached score. The player can choose to restart the game by clicking the “replay game” button or choose to exit the game by selecting “quit game”. 
+Once you run into an obstacle, the border or the avatar itself, the game over screen pops up and shows the currently reached score. The player can choose to restart the game by clicking the “replay game” button or choose to exit the game by selecting “quit game”. 
 '''
 
 '''
@@ -27,17 +27,17 @@ Please run “pip install” for each package. In case pip is not installed yet,
 '''
 
 
-#Import the necessary libararies
+#Import the necessary libararies.
 
-#Pygame is a programming language library in python with which games can be programed. Import pygame to get started 
+#Pygame is a programming language library in python with which games can be programed. Import pygame to get started. 
 import pygame
 from pygame import mixer
 import pygame_menu
 
-#Import time module to set the speed for the snake
+#Import time module to set the speed for the snake.
 import time
 
-#Import datetime for time measurement
+#Import datetime for time measurement.
 import datetime
 
 #Import the random module so that the food which the snake eats will appear at random locations on the display.
@@ -60,25 +60,25 @@ BLACK = (0, 0, 0)
 DIS_WIDTH = 800
 DIS_HEIGHT = 600
 
-#To create an actually screen with Pygame we make use of the display.set_mode() function. At the same time we use the above defined width and height. 
+#To create an actual screen with Pygame we make use of the display.set_mode() function. At the same time, we use the above-defined width and height. 
 dis = pygame.display.set_mode((DIS_WIDTH, DIS_HEIGHT))
 #We want to give the pygame window the name "Snake Game". This is done by using the code below. 
 pygame.display.set_caption('Snake Game')
 
-#XXX 
+#To keep track of the time we create an object named "clock".  
 clock = pygame.time.Clock()
  
-#We define the size of the snake
+#We define the size of the snake.
 snake_block = 10
-#We define the speed of the snake
+#We define the speed of the snake.
 snake_speed_general = 30 
 
 
 
-#we now choose and define the font
+#we now choose and define the font.
 font_style = pygame.font.SysFont("comicsans", 25)
 score_font = pygame.font.SysFont("comicsans", 25)
-# As part of the fonts we also import our menu fonts (from pygame_menu)
+# As part of the fonts we also import our menu fonts (from pygame_menu).
 font_menu = pygame_menu.font.FONT_8BIT
 
 # Main_Menu
@@ -116,7 +116,6 @@ def Your_score(score):
    
  
 #Now we create the snake. It will be represented as a rectangle. To draw rectangles in Pygame, we  make use of the function called draw.rect() which will help us draw the rectangle with the desired color and size. 
-#XXXmore explanation why we use for x in snake list and 
 def our_snake(snake_block, snake_list):
     for x in snake_list:
         pygame.draw.rect(dis, DARKERBLUE, [x[0], x[1], snake_block, snake_block])
@@ -143,7 +142,7 @@ def gameLoop():
     extra_points = 0
     
 
-    #PH: Define the time related to the randomized appearance of the specialfood
+    #PH: Define the time related to the randomized appearance of the specialfood.
     last_specialfood_time = datetime.datetime.now()
     spc_foods = []
     SPECIAL_FOOD_LIFETIME = 5 #seconds, if SPECIAL_FOOD_LIFETIME <= SPECIAL_FOOD_BACKOFF, we might not have multiple special foods at same time
