@@ -13,6 +13,7 @@ Group ID:  108
 ## Introduction
 This project is part of the mandatory curriculum of the course “7,789 | 8,789: Skills: Programming with Advanced Computer Languages” supervised by Dr. Mario Silic at the University of St. Gallen. It was created by a group of students consisting of six people namely Deniz Süzen, Hyungmin Koh, Jonas Rusca, Nurel Yilmaz, Samuel Bissegger und Wei Zheng. 
 
+
 ## Project-Description
 This project aims to build a simple and fun “Snake” game with some individualized features using the programming language Python. Snake is a bordered plane game, designed in the time of the arcade game blockade in the late 1970ies. The game design is set up to maneuver a dot, and later a line in direction of tokens. The tokens have the impact of making the line grow in length. The objective of the game is to eat as many tokens as possible. At the same time, the player must not touch the walls, the obstacle, or collide with the player's avatar itself. Else the game ends and the player is forced to attempt anew. 
 
