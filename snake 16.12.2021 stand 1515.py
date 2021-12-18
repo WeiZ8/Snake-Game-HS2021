@@ -51,7 +51,7 @@ pygame.init()
 RED = (175, 0, 42)
 BLUE = (240, 248, 255)
 DARKBLUE = (61, 90, 110)
-DARKERBLUE = (0, 128, 0)
+GREEN = (0, 128, 0)
 YELLOW = (255, 165, 0)
 BLACK = (0, 0, 0)
 
@@ -118,7 +118,7 @@ def Your_score(score):
 #Now we create the snake. It will be represented as a rectangle. To draw rectangles in Pygame, we  make use of the function called draw.rect() which will help us draw the rectangle with the desired color and size. 
 def our_snake(snake_block, snake_list):
     for x in snake_list:
-        pygame.draw.rect(dis, DARKERBLUE, [x[0], x[1], snake_block, snake_block])
+        pygame.draw.rect(dis, GREEN, [x[0], x[1], snake_block, snake_block])
  
  
 def message(msg, color):
