@@ -6,7 +6,7 @@ Group ID:  108
 
 ## Table of contents
 * [Introduction](#Introduction)
-* [Project-Description](#Project Description)
+* [Project-Description](#Project-Description)
 * [Repository](#Repository)
 * [Installations](#Installations)
 
