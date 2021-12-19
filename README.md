@@ -29,7 +29,7 @@ The game starts with a title screen where the user can enter their name and refe
 The gaming interface shows the score at the top left corner. To play the game the user navigates the snake, which is the green block, using the arrow keys. We based our code on the code of edureka (https://www.edureka.co/blog/snake-game-with-pygame/) and implemented **four additional features**: 
 * First are the obstacles which are colored in black and should be avoided. 
 * The second feature are the two types of “food” added to the game. Starting with the regular red food item that increases the length of the body by 1 block and the score by 1 point after being eaten. The other is a special item that appears randomly after 15 seconds. The yellow food block increases the length of the snake by 5 blocks but also increases the score by 3 extra points. 
-* Third, a sound effect is played once a food item is eaten or when the snake collides with the obstacle, the wall, or itself. 
+* Third, a sound effect is played once a food item is eaten or when the snake collides with the the wall, or itself. 
 * The fourth feature are the start and game-over menu/screen.
 
 ![Snake_Game Over](https://user-images.githubusercontent.com/95411649/146673326-0989190d-8af0-4e14-9d3d-30835167e658.png)
