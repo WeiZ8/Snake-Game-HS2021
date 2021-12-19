@@ -81,7 +81,7 @@ snake_speed_general = 30
 #we now choose and define the font.
 font_style = pygame.font.SysFont("comicsans", 25)
 score_font = pygame.font.SysFont("comicsans", 25)
-# As part of the fonts we also import our menu fonts (from pygame_menu).
+#As part of the fonts we also import our menu fonts (from pygame_menu).
 font_menu = pygame_menu.font.FONT_8BIT
 
 #------------------[The Menu]---------------------
