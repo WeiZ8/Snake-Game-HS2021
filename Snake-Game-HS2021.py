@@ -160,9 +160,6 @@ def gameLoop():
     specialfoodx = round(random.randrange(40 , DIS_WIDTH - 40) / 10.0) * 10.0
     specialfoody = round(random.randrange(40, DIS_HEIGHT - 40) / 10.0) * 10.0 
    
- #task1 from Deniz: obstacle needs to be defined
-    obstaclex = round(random.randrange (40 , DIS_WIDTH - 40) / 10.0) * 10.0
-    obstacley = round(random.randrange(40, DIS_HEIGHT - 40) / 10.0) * 10.0
 
 #------------------[GAME LOGIC]---------------------
  #our infinite game loop
@@ -208,8 +205,6 @@ def gameLoop():
         #the display screen is changed from the default black to blue using the fill() method.
         DIS.fill(BLUE)
         
-        ##task 2 from Deniz: obstacle need to be drawn
-        pygame.draw.rect(DIS, BLACK, [obstaclex, obstacley, snake_block, snake_block])
         
         #the food is created, colored and shaped 
         pygame.draw.rect(DIS, RED, pygame.Rect(foodx, foody,snake_block, snake_block),40, 5)
@@ -267,15 +262,6 @@ def gameLoop():
             foody = round(random.randrange(40 , DIS_HEIGHT - 40) / 10.0) * 10.0
             # if food is eaten, it increases the length by 1 block
             Length_of_snake += 1
-            
-  ##task 3 from Deniz: in case snake eats obstacle snake dies
-        if x1 == obstaclex and y1 == obstacley:
-            foodx = round(random.randrange(40 , DIS_WIDTH - 40) / 10.0) * 10.0
-            foody = round(random.randrange(40 , DIS_HEIGHT - 40) / 10.0) * 10.0
-            game_close = True
-            #sound integration
-            game_over_Sound = mixer.Sound('game_over.mp3')
-            game_over_Sound.play()
  
         #the special food pops up on the display at random locations. 
         if x1 == specialfoodx and y1 == specialfoody:
