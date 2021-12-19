@@ -58,7 +58,7 @@ YELLOW = (255, 165, 0)
 BLACK = (0, 0, 0)
 
 
-#Next we create two variables for our screen. For that we define the width and the height of the screen. 
+#Next we create two variables, DIS_WIDTH and DIS_HEIGHT to sotre our screen width and height. 
 DIS_WIDTH = 800
 DIS_HEIGHT = 600
 
@@ -243,7 +243,7 @@ def gameLoop():
  
         for x in snake_List[:-1]:
             if x == snake_Head:
-                #sound integration
+                #sound integration - create 'game over' sound effect by using variable to represent the sound file we want to use
                 game_over_Sound = mixer.Sound('game_over.mp3')
                 game_over_Sound.play()
                 game_close = True
@@ -255,7 +255,7 @@ def gameLoop():
  
         #foods pop up randomly within the window and adds to the length of the snake after being eaten
         if x1 == foodx and y1 == foody:
-            #sound integration
+            #sound integration - create 'Ding' sound effect by using variable to represent the sound file we want to use
             ding_Sound = mixer.Sound('Ding.mp3')
             ding_Sound.play()
             foodx = round(random.randrange(40 , DIS_WIDTH - 40) / 10.0) * 10.0
@@ -265,7 +265,7 @@ def gameLoop():
  
         #the special food pops up on the display at random locations. 
         if x1 == specialfoodx and y1 == specialfoody:
-            #sound integration
+            #sound integration - create 'Ding' sound effect by using variable to represent the sound file we want to use
             ding_Sound = mixer.Sound('Ding.mp3')
             ding_Sound.play()
             specialfoodx = round(random.randrange(40 , DIS_WIDTH - 40) / 10.0) * 10.0
