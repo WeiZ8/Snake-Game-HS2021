@@ -112,13 +112,13 @@ def show_end_screen(game_score, DIS_WIDTH, DIS_HEIGHT, replay, window):
    end_menu.mainloop(window)
        
  
-# We are adding a starting score 
+#We are adding a starting score 
 def Your_score(score):
     value = score_font.render("Your Score: " + str(score), True, DARKBLUE)
     DIS.blit(value, [0, 0])
    
  
-# Now we create the snake. It will be represented as a rectangle. To draw rectangles in Pygame, we  make use of the function called draw.rect() which will help us draw the rectangle with the desired color and size. 
+#Now we create the snake. It will be represented as a rectangle. To draw rectangles in Pygame, we  make use of the function called draw.rect() which will help us draw the rectangle with the desired color and size. 
 def our_snake(snake_block, snake_list):
     for x in snake_list:
         pygame.draw.rect(DIS, GREEN, [x[0], x[1], snake_block, snake_block])
@@ -136,7 +136,7 @@ def gameLoop():
     x1 = DIS_WIDTH / 2
     y1 = DIS_HEIGHT / 2
 
-# The variables x1_change and y1_change hold the updating values of the x and y coordinates.  
+#The variables x1_change and y1_change hold the updating values of the x and y coordinates.  
     x1_change = 0
     y1_change = 0
 
@@ -193,7 +193,7 @@ def gameLoop():
                 elif event.key == pygame.K_DOWN:
                     y1_change = snake_block
                     x1_change = 0
-        # When the user moves the snake by pressing the key we want the snake to move with the general speed defined with 15.            
+        #When the user moves the snake by pressing the key we want the snake to move with the general speed defined with 15.            
         CLOCK.tick(snake_speed_general)        
 
         #if players hits the boundaries of the screen, then they lose. The ‘if’ statement defines the limits for the x and y coordinates of the snake to be less than or equal to that of the screen.
@@ -258,7 +258,7 @@ def gameLoop():
  
         pygame.display.update()
  
-        # foods pop up randomly within the window and adds to the length of the snake after being eaten
+        #foods pop up randomly within the window and adds to the length of the snake after being eaten
         if x1 == foodx and y1 == foody:
             #sound integration
             ding_Sound = mixer.Sound('Ding.mp3')
