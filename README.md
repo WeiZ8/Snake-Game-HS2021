@@ -37,7 +37,7 @@ The gaming interface shows the score at the top left corner. To play the game th
 Once the snake runs into an obstacle, the border or the avatar itself, the game over screen pops up and shows the reached score. The player can choose to restart the game by clicking the “replay game” button or choose to exit the game by selecting “quit game”. 
 
 ## Repository
-The repository shows five files. The “README.md” file gives an overall introduction and project description. “Snake-Game-HS2021.py” contains the code. The screenshots within “Screenshot” show the gaming interfaces. “Ding.mp3” and “game_over.mp3” are used for the sound effects. 
+The repository shows 4 files. The “README.md” file gives an overall introduction and project description with screenshots showing the gaming interfaces. “Snake-Game-HS2021.py” contains the code. Ding.mp3” and “game_over.mp3” are used for the sound effects. 
 
 In case you are using jupyter notebook to run the code, please ensure that the code and the sound files are located in the same folder for the code to run smoothly. 
 
@@ -48,12 +48,6 @@ The following programs were used to analyse and test the code:
 * Jupyter Notebook and VS Code (visual studio code - program)
 
 The following packages are REQUIRED to run the code: 
-* pygame, pygame-
-
-
-
-
-
-, time, datetime, sys, random
+* pygame, pygame_menu, time, datetime, sys, random
 
 In case these packages are not installed yet, please run “pip install” for each package.
