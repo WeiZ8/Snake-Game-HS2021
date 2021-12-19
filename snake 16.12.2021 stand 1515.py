@@ -46,6 +46,8 @@ import sys, random
 #Before we can do much with pygame, we  need to initialize it. This is done by pygame.init() which initializes all imported pygame modules. 
 pygame.init()
 
+#------------------[Settings]---------------------
+
 #The color scheme used in Pygame is RGB i.e “Red Green Blue”. If we set all these to 0’s, the color will be black and all 255’s will be white. Here we have defined a few colors.
 
 RED = (175, 0, 42)
@@ -56,17 +58,18 @@ YELLOW = (255, 165, 0)
 BLACK = (0, 0, 0)
 
 
-#Next we create the screen. For that we define the width and the height of the screen. 
+#Next we create two variables for our screen. For that we define the width and the height of the screen. 
 DIS_WIDTH = 800
 DIS_HEIGHT = 600
 
 #To create an actual screen with Pygame we make use of the display.set_mode() function. At the same time, we use the above-defined width and height. 
-dis = pygame.display.set_mode((DIS_WIDTH, DIS_HEIGHT))
-#We want to give the pygame window the name "Snake Game". This is done by using the code below. 
+DIS = pygame.display.set_mode((DIS_WIDTH, DIS_HEIGHT))
+#We want to give the pygame window by labeling it "Snake Game". This is done by using the code below. 
 pygame.display.set_caption('Snake Game')
 
-#To keep track of the time we create an object named "clock".  
-clock = pygame.time.Clock()
+#To keep track of the time we create an object named "clock". 
+#Initializing pygame.time.Clock() which controls how many times per second our game loop should run. 
+CLOCK = pygame.time.Clock()
  
 #We define the size of the snake.
 snake_block = 10
@@ -81,7 +84,8 @@ score_font = pygame.font.SysFont("comicsans", 25)
 # As part of the fonts we also import our menu fonts (from pygame_menu).
 font_menu = pygame_menu.font.FONT_8BIT
 
-# Main_Menu
+#------------------[The Menu]---------------------
+#Main_Menu
 def main_menu():
    
     def start_the_game():
@@ -98,8 +102,7 @@ def main_menu():
     menu.mainloop(dis)
 
 
-
- # End menu
+#End menu
 def show_end_screen(game_score, DIS_WIDTH, DIS_HEIGHT, replay, window):
    end_menu = pygame_menu.Menu(width=DIS_WIDTH, height=DIS_HEIGHT, title='Game Over', 
    theme=pygame_menu.themes.THEME_DARK);
@@ -109,21 +112,21 @@ def show_end_screen(game_score, DIS_WIDTH, DIS_HEIGHT, replay, window):
    end_menu.mainloop(window)
        
  
-#XXX 
+# We are adding a starting score 
 def Your_score(score):
     value = score_font.render("Your Score: " + str(score), True, DARKBLUE)
-    dis.blit(value, [0, 0])
+    DIS.blit(value, [0, 0])
    
  
-#Now we create the snake. It will be represented as a rectangle. To draw rectangles in Pygame, we  make use of the function called draw.rect() which will help us draw the rectangle with the desired color and size. 
+# Now we create the snake. It will be represented as a rectangle. To draw rectangles in Pygame, we  make use of the function called draw.rect() which will help us draw the rectangle with the desired color and size. 
 def our_snake(snake_block, snake_list):
     for x in snake_list:
-        pygame.draw.rect(dis, GREEN, [x[0], x[1], snake_block, snake_block])
+        pygame.draw.rect(DIS, GREEN, [x[0], x[1], snake_block, snake_block])
  
  
 def message(msg, color):
     mesg = font_style.render(msg, True, color)
-    dis.blit(mesg, [DIS_WIDTH / 6, DIS_HEIGHT / 3])
+    DIS.blit(mesg, [DIS_WIDTH / 6, DIS_HEIGHT / 3])
        
 
 def gameLoop():
@@ -157,22 +160,23 @@ def gameLoop():
     specialfoodx = round(random.randrange(40 , DIS_WIDTH - 40) / 10.0) * 10.0
     specialfoody = round(random.randrange(40, DIS_HEIGHT - 40) / 10.0) * 10.0 
    
- ##task1 from Deniz: obstacle needs to be defined
+ #task1 from Deniz: obstacle needs to be defined
     obstaclex = round(random.randrange (40 , DIS_WIDTH - 40) / 10.0) * 10.0
     obstacley = round(random.randrange(40, DIS_HEIGHT - 40) / 10.0) * 10.0
 
+#------------------[GAME LOGIC]---------------------
+ #our infinite game loop
     while not game_over:
  
         while game_close == True:
             #the display screen is changed from the default black to blue using the fill() method.
-            show_end_screen(str(Length_of_snake-1), DIS_WIDTH, DIS_HEIGHT, gameLoop, dis)
+            show_end_screen(str(Length_of_snake-1), DIS_WIDTH, DIS_HEIGHT, gameLoop, DIS)
            
             #We want to display the score of the player. To do this, we created the function “Your_score”. This function will display the length of the snake subtracted by 1 because that is the initial size of the snake.
             Your_score(Length_of_snake - 1 + extra_points)
             pygame.display.update()
  
-
- #To move the snake, we use the key events present in the KEYDOWN class of Pygame. The events that are used over here are K_UP, K_DOWN, K_LEFT, and K_RIGHT to make the snake move up, down, left and right respectively. 
+#To move the snake, we use the key events present in the KEYDOWN class of Pygame. The events that are used over here are K_UP, K_DOWN, K_LEFT, and K_RIGHT to make the snake move up, down, left and right respectively. 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 game_over = True
@@ -190,7 +194,7 @@ def gameLoop():
                     y1_change = snake_block
                     x1_change = 0
         # When the user moves the snake by pressing the key we want the snake to move with the general speed defined with 15.            
-        clock.tick(snake_speed_general)        
+        CLOCK.tick(snake_speed_general)        
 
         #if players hits the boundaries of the screen, then they lose. The ‘if’ statement defines the limits for the x and y coordinates of the snake to be less than or equal to that of the screen.
         if x1 >= DIS_WIDTH or x1 < 0 or y1 >= DIS_HEIGHT or y1 < 0:
@@ -202,13 +206,13 @@ def gameLoop():
         y1 += y1_change
 
         #the display screen is changed from the default black to blue using the fill() method.
-        dis.fill(BLUE)
+        DIS.fill(BLUE)
         
         ##task 2 from Deniz: obstacle need to be drawn
-        pygame.draw.rect(dis, BLACK, [obstaclex, obstacley, snake_block, snake_block])
+        pygame.draw.rect(DIS, BLACK, [obstaclex, obstacley, snake_block, snake_block])
         
         #the food is created, colored and shaped 
-        pygame.draw.rect(dis, RED, pygame.Rect(foodx, foody,snake_block, snake_block),40, 5)
+        pygame.draw.rect(DIS, RED, pygame.Rect(foodx, foody,snake_block, snake_block),40, 5)
        
         #this is created for the special food.
         #PH: we always draw all special foods that are not older than 10s
@@ -220,7 +224,7 @@ def gameLoop():
             if time_delta.seconds > SPECIAL_FOOD_LIFETIME:
                 continue
             else:   
-                pygame.draw.rect(dis, YELLOW, pygame.Rect(specialfoodx, specialfoody,snake_block, snake_block),40, 5)
+                pygame.draw.rect(DIS, YELLOW, pygame.Rect(specialfoodx, specialfoody,snake_block, snake_block),40, 5)
         
         #PH: Should we generate new special food?
         # 1 in 3 chances every 2 seconds
@@ -285,7 +289,7 @@ def gameLoop():
             Length_of_snake += 5
 
         
-        clock.tick(snake_speed_general)
+        CLOCK.tick(snake_speed_general)
         
     pygame.quit()
     quit()
