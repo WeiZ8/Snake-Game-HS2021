@@ -20,9 +20,8 @@ Prequisites
 The following packages are required and need to be installed:
 * pygame
 * pygame_menu
-* time
 * dateime
-* sys, random
+* random
 Please run “pip install” for each package. In case pip is not installed yet, please run "python get-pip.py" first.
 '''
 
