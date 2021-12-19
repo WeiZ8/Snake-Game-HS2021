@@ -99,7 +99,7 @@ def main_menu():
     menu.add.text_input('Name : ', default='John Doe')
     menu.add.button('Play', start_the_game, font_name = font_menu)
     menu.add.button('Quit', pygame_menu.events.EXIT, font_name = font_menu)
-    menu.mainloop(dis)
+    menu.mainloop(DIS)
 
 
 #End menu
