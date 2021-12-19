@@ -37,7 +37,7 @@ The following programs were used to analyse and test the code:
 * Anaconda 3
 * Jupyter Notebook and VS Code (visual studio code - program)
 
-The following packages are required to run the code: 
+The following packages are REQUIRED to run the code: 
 * pygame, pygame-menu, time, datetime, sys, random
 
 In case these packages are not installed yet, please run “pip install” for each package.
