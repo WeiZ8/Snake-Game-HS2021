@@ -55,3 +55,13 @@ In case these packages are not installed yet, please run “pip install” for e
 * pip install pygame_menu
 * pip install datetime
 * pip install random
+
+## How to Play
+1. Download the program (along with sounds from our Github account. Go to the link... 
+2. Fork the repository
+3. After downloading, load the folder in your code editor like VS Code, PyCharm, etc. 
+4. Run the file snake.py 
+5. For moving a snake use the arrow buttons only.
+
+You are all set now to play. 
+Enjoy the game!
