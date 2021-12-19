@@ -20,6 +20,7 @@ This project aims to build a simple and fun “Snake” game with some individua
 We will be using Pygame and pygame.menu to create this game. PyGame is an open-source library that is designed for making video games. It has inbuilt graphics and sound libraries. It is also beginner-friendly and is suitable for cross-platform games. PyGame-Menu is a pygame-complementary library, which supports various buttons, labels, color inputs, and text inputs. 
 
 
+![Snake Game_Main Menu](https://user-images.githubusercontent.com/95411649/146671962-eff85403-b84a-43d2-b9b0-8d03ac6cc1e8.png)
 
 The game starts with a title screen where the user can enter their name and refer to the instructions if needed. To start the game, the player has to press “start” or press “quit”, if they wish to leave the game.
 
