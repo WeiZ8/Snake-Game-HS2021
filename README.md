@@ -54,5 +54,4 @@ In case these packages are not installed yet, please run “pip install” for e
 * pip install pygame
 * pip install pygame_menu
 * pip install datetime
-* pip install sys
 * pip install random
