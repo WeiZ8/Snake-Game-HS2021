@@ -51,3 +51,8 @@ The following packages are REQUIRED to run the code:
 * pygame, pygame_menu, time, datetime, sys, random
 
 In case these packages are not installed yet, please run “pip install” for each package.
+* pip install pygame
+* pip install pygame_menu
+* pip install datetime
+* pip install sys
+* pip install random
