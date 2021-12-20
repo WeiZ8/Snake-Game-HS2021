@@ -144,16 +144,18 @@ def gameLoop():
     extra_points = 0
     
 
-    #PH: Define the time related to the randomized appearance of the specialfood.
+ #Here the time stamps and durations regarding the randomized appearance of the specialfood are defined. 
+ #Numbers (in sec.) are assigned for the special food lifetime and sequence between special food spawns.
+ #In addition, it is defined that the food is spawn by defining probabilty as "1" and lastly only only one special food at a time is allowed to exist.
     last_specialfood_time = datetime.datetime.now()
     spc_foods = []
-    SPECIAL_FOOD_LIFETIME = 5 #seconds, if SPECIAL_FOOD_LIFETIME <= SPECIAL_FOOD_BACKOFF, we might not have multiple special foods at same time
-    SPECIAL_FOOD_BACKOFF = 10 #seconds, how much time between two special foods spawns
-    SPECIAL_FOOD_SPAWN_CHANCES = 1 #1/SPECIAL_FOOD_SPAWN_CHANCES to spawn, given time is bigger than backoff
-    MAX_SPECIAL_FOOD_COUNT = 1 #maximum amount of special foods we want, at any given time
+    SPECIAL_FOOD_LIFETIME = 5 
+    SPECIAL_FOOD_BACKOFF = 10 
+    SPECIAL_FOOD_SPAWN_CHANCES = 1 
+    MAX_SPECIAL_FOOD_COUNT = 1 
     
-    #The snake game includes food for the snake. So the food needs to be first created. 
-    #Define the randomized apperance of the food items within the display and its size
+ #The snake game includes food for the snake. So the food needs to be first created. 
+ #Define the randomized apperance of the food items within the display and its size
     foodx = round(random.randrange(40, DIS_WIDTH - 40) / 10.0) * 10.0
     foody = round(random.randrange(40, DIS_HEIGHT - 40) / 10.0) * 10.0
     specialfoodx = round(random.randrange(40 , DIS_WIDTH - 40) / 10.0) * 10.0
@@ -208,8 +210,7 @@ def gameLoop():
         #the food is created, colored and shaped 
         pygame.draw.rect(DIS, RED, pygame.Rect(foodx, foody,snake_block, snake_block),40, 5)
        
-        #this is created for the special food.
-        #PH: we always draw all special foods that are not older than 10s
+        #All special foods that are not older than 10s are drawn the same.
         for fd in spc_foods:
             special_food_x = fd[0]
             special_food_y = fd[1]
@@ -220,11 +221,10 @@ def gameLoop():
             else:   
                 pygame.draw.rect(DIS, YELLOW, pygame.Rect(specialfoodx, specialfoody,snake_block, snake_block),40, 5)
         
-        #PH: Should we generate new special food?
-        # 1 in 3 chances every 2 seconds
+        #The code is designed to create new special food at 1 in 3 chances every 2 seconds
         time_delta = datetime.datetime.now() - last_specialfood_time
         rnd = random.randint(1,SPECIAL_FOOD_SPAWN_CHANCES)
-        #PH 1 in 3 chances that special food spawns
+        #If the special food is renderred we need to define the timing and the design od the food.
         if  rnd == 1 and time_delta.seconds >SPECIAL_FOOD_BACKOFF and len(spc_foods)<= MAX_SPECIAL_FOOD_COUNT:
             last_specialfood_time = datetime.datetime.now()
             specialfoodx = round(random.randrange(0, DIS_WIDTH - snake_block) / 10.0) * 10.0
