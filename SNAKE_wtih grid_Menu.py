@@ -288,7 +288,7 @@ def options():
                              SCREEN_HEIGHT - 30 * 12)
         Info_2 = center_text('One point', font_style, (255, 255, 255), screen, SCREEN_WIDTH / 2,
                              SCREEN_HEIGHT - 30 * 10)
-        Info_3 = center_text('Five points and increase in length by 2', font_style, (255, 255, 255), screen, SCREEN_WIDTH / 2,
+        Info_3 = center_text('Five points', font_style, (255, 255, 255), screen, SCREEN_WIDTH / 2,
                              SCREEN_HEIGHT - 30 * 8)
 
         # Images/symbols describing the text
