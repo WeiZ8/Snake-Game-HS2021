@@ -22,7 +22,7 @@ GREY3 = (211, 211, 211)
 YELLOW = (250, 253, 15)
 
 # Fonts
-font_style = pygame.font.SysFont("comicsans", 40)
+font_style = pygame.font.SysFont("comicsans", 30)
 #Add background music
 pygame.mixer.music.load("Snake Game - Theme Song.mp3")
 pygame.mixer.music.play(-1)
