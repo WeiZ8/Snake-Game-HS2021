@@ -9,7 +9,7 @@ Group ID:  108
 * [Project-Description](#Project-Description)
 * [Repository](#Repository)
 * [Installations](#Installations)
-* [How to Play] (#How to Play)
+* [How-to-Play] (#How-to-Play)
 
 ## Introduction
 This project is part of the mandatory curriculum of the course “7,789 | 8,789: Skills: Programming with Advanced Computer Languages” supervised by Dr. Mario Silic at the University of St. Gallen. It was created by a group of students consisting of six people namely Deniz Süzen, Hyungmin Koh, Jonas Rusca, Nurel Yilmaz, Samuel Bissegger und Wei Zheng. 
@@ -57,7 +57,7 @@ In case these packages are not installed yet, please run “pip install” for e
 * pip install datetime
 * pip install random
 
-## How to Play
+## How-to-Play
 1. Download the program (along with sounds from our Github account. Go to the link... 
 2. Fork the repository
 3. After downloading, load the folder in your code editor like VS Code, PyCharm, etc. 
