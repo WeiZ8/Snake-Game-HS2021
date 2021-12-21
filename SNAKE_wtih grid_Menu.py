@@ -3,6 +3,7 @@ import pygame
 import sys
 import random
 
+#Initialize pygame
 pygame.init()
 #---------[Game Settings]-----------
 #The color scheme used in Pygame is RGB i.e “Red Green Blue”.
@@ -188,7 +189,8 @@ def button_text (text, font, color, surface, x, y):
     textrect = textobj.get_rect()
     textrect.topleft = (x, y)
     surface.blit(textobj, textrect)
-
+    
+#---------------------[MENU]------------------------
 #neww
 def main_menu():
     while True:
