@@ -37,7 +37,6 @@ screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT), 0, 32)
 clock = pygame.time.Clock()
 
 
-
 #Game control settings
 UP = (0, -1)
 DOWN = (0, 1)
