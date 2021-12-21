@@ -285,16 +285,16 @@ def options():
         # Text for options menu
         Title = center_text('Options', font_style, (255, 255, 255), screen, 20, 20)
         Info_1 = center_text('Eat fruit to get longer', font_style, (255, 255, 255), screen, SCREEN_WIDTH / 2,
-                             SCREEN_HEIGHT - 20 * 12)
+                             SCREEN_HEIGHT - 30 * 12)
         Info_2 = center_text('One point', font_style, (255, 255, 255), screen, SCREEN_WIDTH / 2,
-                             SCREEN_HEIGHT - 20 * 10)
+                             SCREEN_HEIGHT - 30 * 10)
         Info_3 = center_text('Five points and increase in length by 2', font_style, (255, 255, 255), screen, SCREEN_WIDTH / 2,
-                             SCREEN_HEIGHT - 20 * 8)
+                             SCREEN_HEIGHT - 30 * 8)
 
         # Images/symbols describing the text
 
         normal_food_sym = pygame.Rect(0, 0, 25, 25)
-        normal_food_sym.midleft = 100, SCREEN_HEIGHT - 20 * 10
+        normal_food_sym.midleft = 100, SCREEN_HEIGHT - 30 * 10
         pygame.draw.rect(screen, RED, normal_food_sym)
 
         special_food_sym = pygame.Rect(0, 0, 25, 25)
