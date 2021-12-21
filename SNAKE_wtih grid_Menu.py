@@ -19,6 +19,7 @@ GREEN3 = (233, 249, 185)
 GREY1 = (105, 105, 105)
 GREY2 = (169, 169, 169)
 GREY3 = (211, 211, 211)
+YELLOW = (250, 253, 15)
 
 # Fonts
 font_style = pygame.font.SysFont("comicsans", 40)
@@ -128,7 +129,7 @@ class Food():
 class Specialfood():
     def __init__(self):
         self.position = (0, 0)
-        self.color = BLACK
+        self.color = YELLOW
         self.randomize_position()
 
     def randomize_position(self):
@@ -284,21 +285,21 @@ def options():
         # Text for options menu
         Title = center_text('Options', font_style, (255, 255, 255), screen, 20, 20)
         Info_1 = center_text('Eat fruit to get longer', font_style, (255, 255, 255), screen, SCREEN_WIDTH / 2,
-                             SCREEN_HEIGHT - 30 * 12)
+                             SCREEN_HEIGHT - 20 * 12)
         Info_2 = center_text('One point', font_style, (255, 255, 255), screen, SCREEN_WIDTH / 2,
-                             SCREEN_HEIGHT - 30 * 10)
-        Info_3 = center_text('Five points', font_style, (255, 255, 255), screen, SCREEN_WIDTH / 2,
-                             SCREEN_HEIGHT - 30 * 8)
+                             SCREEN_HEIGHT - 20 * 10)
+        Info_3 = center_text('Five points and increase in length by 2', font_style, (255, 255, 255), screen, SCREEN_WIDTH / 2,
+                             SCREEN_HEIGHT - 20 * 8)
 
         # Images/symbols describing the text
 
         normal_food_sym = pygame.Rect(0, 0, 25, 25)
-        normal_food_sym.midleft = 100, SCREEN_HEIGHT - 30 * 10
+        normal_food_sym.midleft = 100, SCREEN_HEIGHT - 20 * 10
         pygame.draw.rect(screen, RED, normal_food_sym)
 
         special_food_sym = pygame.Rect(0, 0, 25, 25)
         special_food_sym.midleft = 100, SCREEN_HEIGHT - 30 * 8
-        pygame.draw.rect(screen, GREEN1, special_food_sym)
+        pygame.draw.rect(screen, YELLOW, special_food_sym)
 
         # Back button
         Back_button = pygame.Rect(0, 0, 150, 50)
