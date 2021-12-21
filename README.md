@@ -9,6 +9,7 @@ Group ID:  108
 * [Project-Description](#Project-Description)
 * [Repository](#Repository)
 * [Installations](#Installations)
+* [How to Play] (#How to Play)
 
 ## Introduction
 This project is part of the mandatory curriculum of the course “7,789 | 8,789: Skills: Programming with Advanced Computer Languages” supervised by Dr. Mario Silic at the University of St. Gallen. It was created by a group of students consisting of six people namely Deniz Süzen, Hyungmin Koh, Jonas Rusca, Nurel Yilmaz, Samuel Bissegger und Wei Zheng. 
