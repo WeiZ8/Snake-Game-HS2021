@@ -21,12 +21,7 @@ This project aims to build a simple and fun “Snake” game with some individua
 
 We will be using Pygame to create this game. PyGame is an open-source library that is designed for making video games. It has inbuilt graphics and sound libraries. It is also beginner-friendly and suitable for cross-platform games. 
 
-
-![Snake Game_Main Menu](https://user-images.githubusercontent.com/95411649/146671962-eff85403-b84a-43d2-b9b0-8d03ac6cc1e8.png)
-
 The game starts with a title screen where the user can refer to the “instructions” if needed. To start the game, the player has to press “start”. To leave the game, the player just has to close the window. 
-
-![Snake Game_Main Game](https://user-images.githubusercontent.com/95411649/146672012-7416a006-9227-4173-8ac3-b21b15ec76e5.png)
 
 The gaming interface shows the score at the top left corner. To play the game the user navigates the snake, which is the green line consisting of 3 block, using the arrow keys. We based our code on various codes from different creators, such as Wajiha Urooj (https://www.edureka.co/blog/snake-game-with-pygame/), kiteco (https://github.com/kiteco/python-youtube-code) and Grape Juice (https://dev.to/grapejuice/getting-started-with-pygame-making-a-snake-game-2i1g). In addition to the base code, we have implemented **six additional features**: 
 
@@ -36,8 +31,6 @@ The gaming interface shows the score at the top left corner. To play the game th
 * Fourth is the chessboard like background.  
 * Fifth are sound effects played once a food item is eaten or when the snake collides with itself or the boundary. 
 * Sixth is the end screen. 
-
-![Snake_Game Over](https://user-images.githubusercontent.com/95411649/146673326-0989190d-8af0-4e14-9d3d-30835167e658.png)
 
 Once the snake runs into the border or avatar itself, the game over screen pops up and shows the reached score. The player can choose to restart the game by clicking the “replay game” button or choose to exit the game by selecting “quit game” or closing the window directly. 
 
