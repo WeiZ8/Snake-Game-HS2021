@@ -71,9 +71,9 @@ class Snake():
             self.direction = point
 
     def move(self):
-        cur = self.get_head_position()
+        head = self.get_head_position()
         x, y = self.direction
-        new = (((cur[0] + (x * GRID_SIZE)) % SCREEN_WIDTH), (cur[1] + (y * GRID_SIZE)) % SCREEN_HEIGHT)
+        new = (((head[0] + (x * GRID_SIZE)) % SCREEN_WIDTH), (head[1] + (y * GRID_SIZE)) % SCREEN_HEIGHT)
         if len(self.positions) > 2 and new in self.positions[2:]:
             self.reset()
         else:
