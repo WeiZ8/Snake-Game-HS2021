@@ -39,6 +39,8 @@ screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT), 0, 32)
 clock = pygame.time.Clock()
 #Set sounds and music
 pick_up_sound = pygame.mixer.Sound("Ding.mp3")
+game_over_sound = pygame.mixer.Sound('game_over.mp3')
+
 
 # Game control settings
 UP = (0, -1)
@@ -83,6 +85,7 @@ class Snake():
         self.positions = [((SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2))]
         self.direction = random.choice([UP, DOWN, LEFT, RIGHT])
         self.score = 0
+        game_over_sound.play()
 
     # Now we create the snake. It will be represented as a rectangle.
     # To draw rectangles in Pygame, we  make use of the function called draw.rect() which will help us draw the rectangle with the desired color and size.
