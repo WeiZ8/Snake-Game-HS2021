@@ -124,7 +124,7 @@ class Food():
     # the food is created, colored and shaped
     def draw_Food(self, surface):
         r = pygame.Rect((self.position[0], self.position[1]), (GRID_SIZE, GRID_SIZE))
-        pygame.draw.rect(surface, self.color, r)
+        pygame.draw.rect(surface, self.color, (r), 40, 10)
 
 class Specialfood():
     def __init__(self):
@@ -138,7 +138,7 @@ class Specialfood():
 
     def draw_Specialfood(self, surface):
         r = pygame.Rect((self.position[0], self.position[1]), (GRID_SIZE, GRID_SIZE))
-        pygame.draw.rect(surface, self.color, r)
+        pygame.draw.rect(surface, self.color, (r), 40, 10)
 
 def drawGrid(surface):
     for y in range(0, int(GRID_HEIGHT)):
