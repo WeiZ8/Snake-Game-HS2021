@@ -23,9 +23,9 @@ We will be using Pygame to create this game. PyGame is an open-source library th
 
 The game starts with a title screen where the user can refer to the “instructions” if needed. To start the game, the player has to press “start”. To leave the game, the player just has to close the window. 
 
-![Screen Shot 2021-12-22 at 6 03 59 PM](https://user-images.githubusercontent.com/95411649/147129513-8948c344-60c9-45f2-811e-fd784005ae4a.png)
+![Main_Menu1](https://user-images.githubusercontent.com/95411649/147129513-8948c344-60c9-45f2-811e-fd784005ae4a.png)
 
-![Screen Shot 2021-12-22 at 6 04 05 PM](https://user-images.githubusercontent.com/95411649/147129562-36ddb8ca-058c-4839-af3a-6c3b0742292f.png)
+![Menu_Instructions](https://user-images.githubusercontent.com/95411649/147129562-36ddb8ca-058c-4839-af3a-6c3b0742292f.png)
 
 The gaming interface shows the score at the top left corner. To play the game the user navigates the snake, which is the green line consisting of 3 block, using the arrow keys. We based our code on various codes from different creators, such as Wajiha Urooj (https://www.edureka.co/blog/snake-game-with-pygame/), kiteco (https://github.com/kiteco/python-youtube-code) and Grape Juice (https://dev.to/grapejuice/getting-started-with-pygame-making-a-snake-game-2i1g). In addition to the base code, we have implemented **six additional features**: 
 
