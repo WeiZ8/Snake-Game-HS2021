@@ -23,6 +23,10 @@ We will be using Pygame to create this game. PyGame is an open-source library th
 
 The game starts with a title screen where the user can refer to the “instructions” if needed. To start the game, the player has to press “start”. To leave the game, the player just has to close the window. 
 
+![Screen Shot 2021-12-22 at 6 03 59 PM](https://user-images.githubusercontent.com/95411649/147129513-8948c344-60c9-45f2-811e-fd784005ae4a.png)
+
+![Screen Shot 2021-12-22 at 6 04 05 PM](https://user-images.githubusercontent.com/95411649/147129562-36ddb8ca-058c-4839-af3a-6c3b0742292f.png)
+
 The gaming interface shows the score at the top left corner. To play the game the user navigates the snake, which is the green line consisting of 3 block, using the arrow keys. We based our code on various codes from different creators, such as Wajiha Urooj (https://www.edureka.co/blog/snake-game-with-pygame/), kiteco (https://github.com/kiteco/python-youtube-code) and Grape Juice (https://dev.to/grapejuice/getting-started-with-pygame-making-a-snake-game-2i1g). In addition to the base code, we have implemented **six additional features**: 
 
 * First, we created a title screen that shows the main menu with 2 buttons “Play” and “Instructions”. When you click on instructions, it shows the color and score properties of the foods.
@@ -31,6 +35,8 @@ The gaming interface shows the score at the top left corner. To play the game th
 * Fourth is the chessboard like background.  
 * Fifth are sound effects played once a food item is eaten or when the snake collides with itself or the boundary. 
 * Sixth is the end screen. 
+
+![Screen Shot 2021-12-22 at 6 04 14 PM](https://user-images.githubusercontent.com/95411649/147129734-70e7d2b5-4904-43d9-8158-c01ba53d5260.png)
 
 Once the snake runs into the border or avatar itself, the game over screen pops up and shows the reached score. The player can choose to restart the game by clicking the “replay game” button or choose to exit the game by selecting “quit game” or closing the window directly. 
 
