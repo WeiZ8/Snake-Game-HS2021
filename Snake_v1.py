@@ -138,18 +138,19 @@ class MAIN():
         self.drawGrid(surface)
 
     def check_collision(self):
+        # Check for collisions with normal food
         if self.get_head_position() == self.food.position:
             #add another block to the snake
-            self.snake.length += 1
+            self.length += 1
             # reposition the food
-            self.food.randomize_position()
-            self.snake.score += 1
+            self.randomize_position()
+            self.score += 1
             pick_up_sound.play() #sound integration
 
-        # Check for collisions with normal special food
-        if self.snake.get_head_position() == self.specialfood.position:
-            self.snake.length += 2
-            self.snake.score += 5
+        # Check for collisions with special food
+        if self.get_head_position() == self.specialfood.position:
+            self.length += 2
+            self.score += 5
             self.specialfood.randomize_position()
             pick_up_sound.play()  # sound integration
 
