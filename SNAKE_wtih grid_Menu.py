@@ -2,6 +2,7 @@ from typing import Text
 import pygame
 import sys
 import random
+import time
 
 # Initialize pygame
 pygame.init()
