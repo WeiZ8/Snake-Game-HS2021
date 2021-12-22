@@ -17,31 +17,34 @@ This project is part of the mandatory curriculum of the course “7,789 | 8,789:
 
 
 ## Project-Description
-This project aims to build a simple and fun “Snake” game with some individualized features using the programming language Python. Snake is a bordered plane game, designed in the time of the arcade game blockade in the late 1970ies. The game design is set up to maneuver a dot, and later a line in direction of tokens. The tokens have the impact of making the line grow in length. The objective of the game is to eat as many tokens as possible. At the same time, the player must not touch the walls, the obstacle, or collide with the player's avatar itself. Else the game ends and the player is forced to attempt anew. 
+This project aims to build a simple and fun “Snake” game with some individualized features using the programming language Python. Snake is a bordered plane game, designed in the time of the arcade game blockade in the late 1970ies. The game design is set up to maneuver a dot, and later a line in direction of tokens. The tokens have the impact of making the line grow in length. The objective of the game is to eat as many tokens as possible. At the same time, the player must not touch the walls, or collide with the player's avatar itself. Else the game ends and the player is forced to attempt anew. We decided on just applying the collision with the avatar itself, allowing the snake to cross the borders of the window.
 
-We will be using Pygame and pygame_menu to create this game. PyGame is an open-source library that is designed for making video games. It has inbuilt graphics and sound libraries. It is also beginner-friendly and suitable for cross-platform games. PyGame-Menu is a pygame-complementary library, which supports various buttons, labels, color inputs, and text inputs. 
+We will be using Pygame to create this game. PyGame is an open-source library that is designed for making video games. It has inbuilt graphics and sound libraries. It is also beginner-friendly and suitable for cross-platform games. 
 
 
 ![Snake Game_Main Menu](https://user-images.githubusercontent.com/95411649/146671962-eff85403-b84a-43d2-b9b0-8d03ac6cc1e8.png)
 
-The game starts with a title screen where the user can enter their name and refer to the instructions if needed. To start the game, the player has to press “start” or press “quit”, if they wish to leave the game.
+The game starts with a title screen where the user can refer to the “instructions” if needed. To start the game, the player has to press “start”. To leave the game, the player just has to close the window. 
 
 ![Snake Game_Main Game](https://user-images.githubusercontent.com/95411649/146672012-7416a006-9227-4173-8ac3-b21b15ec76e5.png)
 
-The gaming interface shows the score at the top left corner. To play the game the user navigates the snake, which is the green block, using the arrow keys. We based our code on the code of edureka (https://www.edureka.co/blog/snake-game-with-pygame/) and implemented **four additional features**: 
-* First are the obstacles which are colored in black and should be avoided. 
-* The second feature are the two types of “food” added to the game. Starting with the regular red food item that increases the length of the body by 1 block and the score by 1 point after being eaten. The other is a special item that appears randomly after 15 seconds. The yellow food block increases the length of the snake by 5 blocks but also increases the score by 3 extra points. 
-* Third, a sound effect is played once a food item is eaten or when the snake collides with the the wall, or itself. 
-* The fourth feature are the start and game-over menu/screen.
+The gaming interface shows the score at the top left corner. To play the game the user navigates the snake, which is the green line consisting of 3 block, using the arrow keys. We based our code on various codes from different creators, such as Wajiha Urooj (https://www.edureka.co/blog/snake-game-with-pygame/), kiteco (https://github.com/kiteco/python-youtube-code) and Grape Juice (https://dev.to/grapejuice/getting-started-with-pygame-making-a-snake-game-2i1g). In addition to the base code, we have implemented **six additional features**: 
+
+* First, we created a title screen that shows the main menu with 2 buttons “Play” and “Instructions”. When you click on instructions, it shows the color and score properties of the foods.
+* Second is the feature of the two types of “food” added to the game. Starting with the regular red food item that increases the length of the body by 1 block and the score by 1 point after being eaten. The other is a special item that increases the length of the snake by 2 blocks but also increases the score by 5 extra points and is colored yellow. 
+* Third is the background music added which loops throughout the game. 
+* Fourth is the chessboard like background.  
+* Fifth are sound effects played once a food item is eaten or when the snake collides with itself or the boundary. 
+* Sixth is the end screen. 
 
 ![Snake_Game Over](https://user-images.githubusercontent.com/95411649/146673326-0989190d-8af0-4e14-9d3d-30835167e658.png)
 
-Once the snake runs into an obstacle, the border or the avatar itself, the game over screen pops up and shows the reached score. The player can choose to restart the game by clicking the “replay game” button or choose to exit the game by selecting “quit game”. 
+Once the snake runs into the border or avatar itself, the game over screen pops up and shows the reached score. The player can choose to restart the game by clicking the “replay game” button or choose to exit the game by selecting “quit game” or closing the window directly. 
 
 ## Repository
-The repository shows 4 files. The “README.md” file gives an overall introduction and project description with screenshots showing the gaming interfaces. “Snake-Game-HS2021.py” contains the code. Ding.mp3” and “game_over.mp3” are used for the sound effects. 
+The repository shows 5 files. The “README.md” file gives an overall introduction and project description with screenshots showing the gaming interfaces. “Snake-Game-HS2021.py” contains the code. “Ding.mp3” and “game_over.mp3” are used for the sound effects. “Snake Game – Theme Song.mp3” is used for the backgroundmusic. 
 
-In case you are using jupyter notebook to run the code, please ensure that the code and the sound files are located in the same folder for the code to run smoothly. 
+In case you are using jupyter notebook to run the code, please ensure that the code, sound and background music files are located in the same folder for the code to run smoothly. 
 
 ## Installations
 The following programs were used to analyse and test the code:
@@ -49,17 +52,15 @@ The following programs were used to analyse and test the code:
 * Anaconda 3
 * Jupyter Notebook and VS Code (visual studio code - program)
 
-The following packages are REQUIRED to run the code: 
-* pygame, pygame_menu, time, datetime, sys, random
+The following packages and modules are REQUIRED to run the code: 
+* pygame, time, sys, random, typing
 
-In case these packages are not installed yet, please run “pip install” for each package.
+In case these packages are not installed yet, please run “pip install” for each package. If pip is not installed yet, please run "python get-pip.py" first.
 * pip install pygame
-* pip install pygame_menu
-* pip install datetime
 * pip install random
 
 ## How-to-Play
-1. Download the program (along with sounds from our Github account. Go to the link... 
+1. Download the program (along with sounds from our Github account. Go to the linkhttps://github.com/WeiZ8/Snake-Game-HS2021.git 
 2. Fork the repository
 3. After downloading, load the folder in your code editor like VS Code, PyCharm, etc. 
 4. Run the file snake.py 
