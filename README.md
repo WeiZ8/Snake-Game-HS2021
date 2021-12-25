@@ -23,7 +23,7 @@ To the ends of the creation of the game, Pygame was utilized. PyGame is an open-
 
 The game starts with a title screen where the user can refer to the “instructions” if needed. To start the game, the player has to press “Play”. To leave the game, the player just has to close the window. 
 
-![Main_Menu](https://user-images.githubusercontent.com/95411649/147395005-5c936acb-a50a-4a0e-a109-86f72a5fddaa.png)
+![Main_Menu](https://user-images.githubusercontent.com/95411649/147395033-027b0334-68f8-4c7e-875d-bca1fac15532.png)
 
 ![Instructions](https://user-images.githubusercontent.com/95411649/147395008-8b8c1974-fd0e-42a5-858b-2778bd32d376.png)
 
