@@ -58,7 +58,7 @@ In case these packages are not installed yet, please run “pip install” for e
 * pip install random
 
 ## How-to-Play
-1. Download the program (along with sounds from our Github account. Go to the linkhttps://github.com/WeiZ8/Snake-Game-HS2021.git 
+1. Download the program (along with sounds from our Github account. Go to the link https://github.com/WeiZ8/Snake-Game-HS2021.git 
 2. Fork the repository
 3. After downloading, load the folder in your code editor like VS Code, PyCharm, etc. 
 4. Run the file snake.py 
