@@ -142,7 +142,7 @@ def options():
         screen.fill(BLACK)
         mx, my = pygame.mouse.get_pos()
         # Text for options menu (within the instruction button)
-        Title = center_text('Options', font, WHITE, screen, 20, 20)
+        Title = center_text('Options', font, WHITE, screen, 40, 40)
         Info_1 = center_text('Eat fruit to get longer', font, WHITE, screen, SCREEN_WIDTH / 2,
                              SCREEN_HEIGHT - 30 * 12)
         Info_2 = center_text('One point', font, WHITE, screen, SCREEN_WIDTH / 2,
