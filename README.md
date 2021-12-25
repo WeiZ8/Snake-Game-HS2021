@@ -17,7 +17,7 @@ This project is part of the mandatory curriculum of the course “7,789 | 8,789:
 
 
 ## Project-Description
-This project aims to build a simple and fun “Snake” game with some individualized features using the programming language Python. Snake is a bordered plane game, designed in the time of the arcade game blockade in the late 1970ies. The game design is set up to maneuver a dot, and later a line in direction of tokens. The tokens have the impact of making the line grow in length. The objective of the game is to eat as many tokens as possible. At the same time, the player must not touch the walls, or collide with the player's avatar itself. Else the game ends and the player is forced to attempt anew. We decided on just applying the collision with the avatar itself, allowing the snake to cross the borders of the window.
+This project aims to build a simple and fun “Snake” game with some individualized features using the programming language Python. Snake is a bordered plane game, designed in the time of the arcade game blockade in the late 1970ies. The game design is set up to maneuver a dot, and later a line in direction of tokens. The tokens have the impact of making the line grow in length. The objective of the game is to eat as many tokens as possible. At the same time, the player must not touch the walls, or collide with the player's avatar itself. Else the game ends and the player is forced to attempt anew. We decided on applying both features, the collision with the border of the window and the avatar itself.
 
 We will be using Pygame to create this game. PyGame is an open-source library that is designed for making video games. It has inbuilt graphics and sound libraries. It is also beginner-friendly and suitable for cross-platform games. 
 
