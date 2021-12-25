@@ -1,15 +1,34 @@
 from typing import Text
 import pygame
-import sys
 import random
+import sys
 import time
 
-# Initialize pygame
+# Initialize pygame and music
 pygame.init()
+pygame.mixer.init()
+pick_up_sound = pygame.mixer.Sound("Ding.mp3")
+game_over_sound = pygame.mixer.Sound('game_over.mp3')
 
-# ---------[Game Settings]-----------
+# Global Variables
+SCREEN_WIDTH = 480
+SCREEN_HEIGHT = 480
+
+GRID_SIZE = 20  # 20 pixels allows us to get 24 grid squares across 25 grid squares down
+GRID_WIDTH = SCREEN_WIDTH / GRID_SIZE
+GRID_HEIGHT = SCREEN_HEIGHT / GRID_SIZE
+
+clock = pygame.time.Clock()
+screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+font = pygame.font.SysFont("comicsans", 30)
+
+FPS = 10  # 10ticks per second
+
+# Snake will always start in the center
+CENTER = ((SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2))
+
 # The color scheme used in Pygame is RGB i.e “Red Green Blue”.
-# If we set all these to 0’s, the color will be black and all 255’s will be white. Here we have defined a few colors.
+# Here we have defined a few colors.
 BLACK = (0, 0, 0)
 DARKBLUE = (61, 90, 110)
 WHITE = (255, 255, 255)
@@ -22,113 +41,91 @@ GREY2 = (169, 169, 169)
 GREY3 = (211, 211, 211)
 YELLOW = (250, 253, 15)
 
-# Fonts
-font_style = pygame.font.SysFont("comicsans", 30)
-#Add background music
-pygame.mixer.music.load("Snake Game - Theme Song.mp3")
-pygame.mixer.music.play(-1)
-
-# display settings
-SCREEN_WIDTH = 480
-SCREEN_HEIGHT = 480
-GRID_SIZE = 20
-GRID_WIDTH = SCREEN_WIDTH / GRID_SIZE
-GRID_HEIGHT = SCREEN_HEIGHT / GRID_SIZE
-screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT), 0, 32)
-
-# Global settings
-clock = pygame.time.Clock()
-#Set sounds and music
-pick_up_sound = pygame.mixer.Sound("Ding.mp3")
-game_over_sound = pygame.mixer.Sound('game_over.mp3')
-
-
-# Game control settings
+# Declare directions / control settings
+# xy tuples
 UP = (0, -1)
 DOWN = (0, 1)
 LEFT = (-1, 0)
 RIGHT = (1, 0)
 
+STOP = (0, 0)
+
 
 # -----------[SNAKE CLASS]--------------
-
-class Snake():
+# Within the snake class, we define all features and settings of the snake
+# Attributes of the snake incl. length, position of the snake, possible directions when key pressed, its color and the starting scor
+class Snake:
     def __init__(self):
         self.length = 3
-        self.positions = [((SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2))]
-        self.direction = random.choice([UP, DOWN, LEFT, RIGHT])
-        self.color1 = GREEN1
-        self.color2 = GREEN2
         self.score = 0
+        self.positions = [CENTER]
+        self.direction = random.choice([UP, DOWN, LEFT, RIGHT])
+        self.color = GREEN1
+        self.outline_color = WHITE
 
+    # define the head position
     def get_head_position(self):
-        return self.positions[0]
+        return self.positions[0]  # the very first position of our array
 
-    def turn(self, point):
-        if self.length > 1 and (point[0] * -1, point[1] * -1) == self.direction:
+    # the direction that it gets passed to the turn function
+    # we are taking the x * -1 and y*-1 which gives us the reversed direction we are heading
+    def turn(self, new_dir):
+        if self.length > 1 and (new_dir[0] * -1, new_dir[1] * -1) == self.direction:
             return
         else:
-            self.direction = point
+            self.direction = new_dir
 
+    # move function for the snake
     def move(self):
-        head = self.get_head_position()
+        # decomposition of the tuples
+        cur = self.get_head_position()
         x, y = self.direction
-        new = (((head[0] + (x * GRID_SIZE)) % SCREEN_WIDTH), (head[1] + (y * GRID_SIZE)) % SCREEN_HEIGHT)
-        if len(self.positions) > 2 and new in self.positions[2:]:
+        new_pos = ((cur[0] + (x * GRID_SIZE)), cur[1] + (y * GRID_SIZE))
+        # collision with wall/boundaries
+        if new_pos[0] < 0 or new_pos[0] >= SCREEN_WIDTH or new_pos[1] < 0 or new_pos[1] >= SCREEN_HEIGHT:
+            self.reset()
+            game_over_sound.play()
+        elif len(self.positions) > 2 and new_pos in self.positions[2:]:
             self.reset()
         else:
-            self.positions.insert(0, new)
+            self.positions.insert(0, new_pos)
             if len(self.positions) > self.length:
                 self.positions.pop()
 
     def reset(self):
         self.length = 3
-        self.positions = [((SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2))]
-        self.direction = random.choice([UP, DOWN, LEFT, RIGHT])
+        self.positions = [CENTER]
+        self.direction = STOP
         self.score = 0
-        game_over_sound.play()
 
     # Now we create the snake. It will be represented as a rectangle.
-    # To draw rectangles in Pygame, we  make use of the function called draw.rect() which will help us draw the rectangle with the desired color and size.
+    # To draw rectangles in Pygame, we  make use of the function called draw.rect() which will help us draw the rectangle
     def draw(self, surface):
         for p in self.positions:
             r = pygame.Rect((p[0], p[1]), (GRID_SIZE, GRID_SIZE))
-            pygame.draw.rect(surface, self.color1, r)
-            pygame.draw.rect(surface, WHITE, r, 1)
-
-    def handle_keys(self):
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-                sys.exit()
-            # To move the snake we will use key events from the KEYDOWN class of the Pygame library.
-            # The K_UP, K_DOWN, K_LEFT, and K_RIGHT events will cause the snake to move up, down, left, and right, respectively.
-            elif event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_UP:
-                    self.turn(UP)
-                elif event.key == pygame.K_DOWN:
-                    self.turn(DOWN)
-                elif event.key == pygame.K_LEFT:
-                    self.turn(LEFT)
-                elif event.key == pygame.K_RIGHT:
-                    self.turn(RIGHT)
+            pygame.draw.rect(surface, self.color, r)
+            pygame.draw.rect(surface, self.outline_color, r, 1)
 
 
 # -----------[FOOD CLASS]--------------
-class Food():
+# Within the snake class, we define all features and settings of the snake
+class Food:
     def __init__(self):
         self.position = (0, 0)
         self.color = RED
         self.randomize_position()
 
+    # define the random position of the food
     def randomize_position(self):
-        self.position = (random.randint(0, GRID_WIDTH - 1) * GRID_SIZE,
-                         random.randint(0, GRID_HEIGHT - 1) * GRID_SIZE)
+        rand_x = random.randint(0, int(GRID_WIDTH - 1))
+        rand_y = random.randint(0, int(GRID_HEIGHT - 1))
+        self.position = (rand_x * GRID_SIZE, rand_y * GRID_SIZE)
 
     # the food is created, colored and shaped
-    def draw_Food(self, surface):
+    def draw(self, surface):
         r = pygame.Rect((self.position[0], self.position[1]), (GRID_SIZE, GRID_SIZE))
-        pygame.draw.rect(surface, self.color, (r), 40, 10)
+        pygame.draw.rect(surface, self.color, r, 40, 10)
+
 
 class Specialfood():
     def __init__(self):
@@ -137,66 +134,120 @@ class Specialfood():
         self.randomize_position()
 
     def randomize_position(self):
-        self.position = (random.randint(0, GRID_WIDTH - 1) * GRID_SIZE,
-                         random.randint(0, GRID_HEIGHT - 1) * GRID_SIZE)
+        rand_x = (random.randint(0, int(GRID_WIDTH) - 1))
+        rand_y = (random.randint(0, int(GRID_HEIGHT) - 1))
+        self.position = (rand_x * GRID_SIZE, rand_y * GRID_SIZE)
 
-    def draw_Specialfood(self, surface):
+    def draw(self, surface):
         r = pygame.Rect((self.position[0], self.position[1]), (GRID_SIZE, GRID_SIZE))
         pygame.draw.rect(surface, self.color, (r), 40, 10)
 
-def drawGrid(surface):
-    for y in range(0, int(GRID_HEIGHT)):
+
+# --------------[GAME WORLD CLASS]--------------
+# Reposition of the snake and the food of the world
+# Also the logic to the key presses of the game
+
+class World:
+    def __init__(self):
+        self.snake = Snake()
+        self.food = Food()
+        self.specialfood = Specialfood()
+
+    def update(self):
+        self.snake.move()
+        if self.snake.get_head_position() == self.food.position:
+            self.snake.length += 1
+            self.snake.score += 1
+            self.food.randomize_position()
+            pick_up_sound.play()  # sound effect when snake picks up food
+
+        if self.snake.get_head_position() == self.specialfood.position:
+            self.snake.length += 3
+            self.snake.score += 5
+            self.food.randomize_position()
+            pick_up_sound.play()  # sound effect when snake picks up food
+
+    def draw(self, surface):
+        self.snake.draw(surface)
+        self.food.draw(surface)
+        self.specialfood.draw(surface)
+
+    def score(self):
+        return self.snake.score
+
+    def handle_keys(self, event):
+        if event.type == pygame.KEYDOWN:
+            # To move the snake we will use key events from the KEYDOWN class of the Pygame library.
+            # The K_UP, K_DOWN, K_LEFT, and K_RIGHT events will cause the snake to move up, down, left, and right, respectively
+            if event.key == pygame.K_UP:
+                self.snake.turn(UP)
+            elif event.key == pygame.K_DOWN:
+                self.snake.turn(DOWN)
+            elif event.key == pygame.K_LEFT:
+                self.snake.turn(LEFT)
+            elif event.key == pygame.K_RIGHT:
+                self.snake.turn(RIGHT)
+
+
+def draw_grid(surface):
+    for y in range(0, int(GRID_HEIGHT)):  # we always want to pass on an integer in a range
+        # create a nested for loop
         for x in range(0, int(GRID_WIDTH)):
-            if (x + y) % 2 == 0:
+            if (x + y) % 2 == 0:  # even square positions
+                # define two tuples inside the rect
                 r = pygame.Rect((x * GRID_SIZE, y * GRID_SIZE), (GRID_SIZE, GRID_SIZE))
+                # draw the rectangles
                 pygame.draw.rect(surface, WHITE, r)
             else:
                 rr = pygame.Rect((x * GRID_SIZE, y * GRID_SIZE), (GRID_SIZE, GRID_SIZE))
                 pygame.draw.rect(surface, GREY3, rr)
 
-# -----------[MAIN GAME CLASS]--------------
-def main():
+
+def run():
     pygame.init()
-    # Initialise game window
-    pygame.display.set_caption('Snake Game')
+
     clock = pygame.time.Clock()
-    screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT), 0, 32)
+    screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+    pygame.display.set_caption("SNAKE GAME ON STEROIDS")
 
+    # define a surface to draw on
+    # creates a surface exactly the same size as the display area
     surface = pygame.Surface(screen.get_size())
+    # convert the screen to run in the resolution of the monitor
     surface = surface.convert()
-    drawGrid(surface)
 
-    snake = Snake()
-    food = Food()
-    specialfood = Specialfood()
+    draw_grid(surface)
 
-    score_font = pygame.font.SysFont("comicsans", 30)
+    world = World()
 
-    while (True):
-        clock.tick(10)
-        snake.handle_keys()
-        drawGrid(surface)
-        snake.move()
-        # Check for collisions with normal food
-        if snake.get_head_position() == food.position:
-            snake.length += 1
-            snake.score += 1
-            pick_up_sound.play() #sound integration
-            food.randomize_position()
-        # Check for collisions with normal special food
-        if snake.get_head_position() == specialfood.position:
-            snake.length += 2
-            snake.score += 5
-            pick_up_sound.play() #sound integration
-            specialfood.randomize_position()
+    font = pygame.font.SysFont("comicsans", 30)
 
-        snake.draw(surface)
-        food.draw_Food(surface)
-        specialfood.draw_Specialfood(surface)
+    # Add background music
+    pygame.mixer.music.load("Snake Game - Theme Song.mp3")
+    pygame.mixer.music.play(-1)
+
+    # Creating the game loop
+    running = True
+    while running:
+        # Checking all the events that are happening on our screen
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    running = False
+                else:
+                    world.handle_keys(event)
+
+        clock.tick(FPS)
+        world.update()
+
+        draw_grid(surface)
+        world.draw(surface)
+
         screen.blit(surface, (0, 0))
-        # We are adding a starting score
-        your_score = score_font.render("Your Score: {0}".format(snake.score), 1, DARKBLUE)
-        screen.blit(your_score, (5, 10))
+        text = font.render("Score {0}".format(world.score()), 1, DARKBLUE)
+        screen.blit(text, (5, 10))
         pygame.display.update()
 
 
@@ -227,8 +278,8 @@ def button_text(text, font, color, surface, x, y):
 def main_menu():
     while True:
 
-        screen.fill((0, 0, 0))
-        center_text('Main menu', font_style, (255, 255, 255), screen, 40, 40)
+        screen.fill(BLACK)
+        center_text('Main Menu', font, WHITE, screen, 40, 40)
 
         mx, my = pygame.mouse.get_pos()
 
@@ -237,30 +288,30 @@ def main_menu():
 
         button_1 = pygame.Rect(0, 0, 200, 75)
         button_1.center = ((SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2))
-        pygame.draw.rect(screen, (255, 255, 255), button_1)
+        pygame.draw.rect(screen, WHITE, button_1)
 
         button_2 = pygame.Rect(0, 0, 200, 75)
         button_2.centerx = ((SCREEN_WIDTH / 2))
         button_2.centery = ((
                                 button_1.centery) + button_1.height * 1.5)  # We distanciate the second button by the lenght of exaclty 0.5 button
 
-        pygame.draw.rect(screen, (255, 0, 0), button_1)
-        pygame.draw.rect(screen, (255, 0, 0), button_2)
+        pygame.draw.rect(screen, RED, button_1)
+        pygame.draw.rect(screen, RED, button_2)
 
         if button_1.collidepoint((mx, my)):
             if click:
-                main()
+                run()
         if button_2.collidepoint((mx, my)):
             if click:
                 options()
 
         # Adding text to the buttons
         # We use True in "font_style.render", to activate antialiasing and make the text smoother
-        Text_button_1 = font_style.render("Play", True, 20)
+        Text_button_1 = font.render("Play", True, 20)
         text_rect_1 = Text_button_1.get_rect(center=(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2))
         screen.blit(Text_button_1, text_rect_1)
 
-        Text_button_2 = font_style.render("Instructions", True, 20)
+        Text_button_2 = font.render("Instructions", True, 20)
         text_rect_2 = Text_button_2.get_rect(center=(SCREEN_WIDTH / 2, button_2.centery))
         screen.blit(Text_button_2, text_rect_2)
 
@@ -287,12 +338,12 @@ def options():
         screen.fill((0, 0, 0))
         mx, my = pygame.mouse.get_pos()
         # Text for options menu
-        Title = center_text('Options', font_style, (255, 255, 255), screen, 20, 20)
-        Info_1 = center_text('Eat fruit to get longer', font_style, (255, 255, 255), screen, SCREEN_WIDTH / 2,
+        Title = center_text('Options', font, WHITE, screen, 20, 20)
+        Info_1 = center_text('Eat fruit to get longer', font, WHITE, screen, SCREEN_WIDTH / 2,
                              SCREEN_HEIGHT - 30 * 12)
-        Info_2 = center_text('One point', font_style, (255, 255, 255), screen, SCREEN_WIDTH / 2,
+        Info_2 = center_text('One point', font, WHITE, screen, SCREEN_WIDTH / 2,
                              SCREEN_HEIGHT - 30 * 10)
-        Info_3 = center_text('Five points', font_style, (255, 255, 255), screen, SCREEN_WIDTH / 2,
+        Info_3 = center_text('Five points', font, WHITE, screen, SCREEN_WIDTH / 2,
                              SCREEN_HEIGHT - 30 * 8)
 
         # Images/symbols describing the text
@@ -310,7 +361,7 @@ def options():
         Back_button.center = (SCREEN_WIDTH / 2, SCREEN_HEIGHT - 30 * 2)
         pygame.draw.rect(screen, (GREY1), Back_button)
 
-        Back_button_text = font_style.render("Back", True, 10)
+        Back_button_text = font.render("Back", True, 10)
         Back_button_text_rect = Back_button_text.get_rect(center=(Back_button.center))
         screen.blit(Back_button_text, Back_button_text_rect)
 
@@ -335,5 +386,3 @@ def options():
 
 
 main_menu()
-
-
