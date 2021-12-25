@@ -164,7 +164,7 @@ class World:
         if self.snake.get_head_position() == self.specialfood.position:
             self.snake.length += 3
             self.snake.score += 5
-            self.food.randomize_position()
+            self.specialfood.randomize_position()
             pick_up_sound.play()  # sound effect when snake picks up food
 
     def draw(self, surface):
