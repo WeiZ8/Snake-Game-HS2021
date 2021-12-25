@@ -21,7 +21,7 @@ This project aims to build a simple and fun “Snake” game with some individua
 
 To the ends of the creation of the game, Pygame was utilized. PyGame is an open-source library that is designed for making video games. It has inbuilt graphics and sound libraries. 
 
-The game starts with a title screen where the user can refer to the “instructions” if needed. To start the game, the player has to press “start”. To leave the game, the player just has to close the window. 
+The game starts with a title screen where the user can refer to the “instructions” if needed. To start the game, the player has to press “Play”. To leave the game, the player just has to close the window. 
 
 ![Main_Menu1](https://user-images.githubusercontent.com/95411649/147129513-8948c344-60c9-45f2-811e-fd784005ae4a.png)
 
