@@ -29,7 +29,6 @@ pygame.mixer.init()
 pick_up_sound = pygame.mixer.Sound("Ding.mp3")
 game_over_sound = pygame.mixer.Sound('game_over.mp3')
 
-
 # Global Variables
 SCREEN_WIDTH = 480
 SCREEN_HEIGHT = 480
@@ -239,7 +238,6 @@ class Snake:
             pygame.draw.rect(surface, self.color, r)
             pygame.draw.rect(surface, self.outline_color, r, 1)
 
-
 # -----------[FOOD CLASS]--------------
 # Within the food class, we define all features and settings of the standard food 
 class Food:
@@ -258,7 +256,6 @@ class Food:
     def draw(self, surface):
         r = pygame.Rect((self.position[0], self.position[1]), (GRID_SIZE, GRID_SIZE))
         pygame.draw.rect(surface, self.color, r, 40, 10)
-
 
 # We define all features and settings of the special food       
 class Specialfood():
@@ -372,7 +369,7 @@ def run():
 
         screen.blit(surface, (0, 0))
         scored = world.score()
-        text = font.render("Score {0}".format(scored), 1, DARKBLUE)
+        text = font.render("Your Score: {0}".format(scored), 1, DARKBLUE)
         screen.blit(text, (5, 10))
         pygame.display.update()
         
