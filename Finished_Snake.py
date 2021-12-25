@@ -398,7 +398,7 @@ def game_over(scored):
         screen.blit(game_over_score , font_pos_score)
         pygame.display.update()
           
-        #here what we are doing is weuse time.sleep() to stop our program for 3 seconds ,after 3 seconds, we call our main_menu()
+        #here what we are doing is we use time.sleep() to stop our program for 3 seconds ,after 3 seconds, we call our main_menu()
         time.sleep(3)
         main_menu()
 
