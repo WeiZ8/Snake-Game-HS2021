@@ -1,3 +1,25 @@
+#Snake Game
+
+'''
+Prequisites
+
+The following packages and modules are REQUIRED to run the code:
+*pygame
+*time
+*sys
+*random
+*typing
+
+In case these packages are not installed yet, please run “pip install” for each package. 
+If pip is not installed yet, please run "python get-pip.py" first.
+*pip install pygame
+*pip install random
+
+For further information on the project, please refer to the "README.md" file. 
+
+'''
+
+#Import the necessary libraries
 from typing import Text
 import pygame
 import random
@@ -53,7 +75,7 @@ STOP = (0, 0)
 
 # -----------[SNAKE CLASS]--------------
 # Within the snake class, we define all features and settings of the snake
-# Attributes of the snake incl. length, position of the snake, possible directions when key pressed, its color and the starting scor
+# Attributes of the snake incl. length, position of the snake, possible directions when key pressed, its color and the starting score
 class Snake:
     def __init__(self):
         self.length = 3
@@ -91,7 +113,8 @@ class Snake:
             self.positions.insert(0, new_pos)
             if len(self.positions) > self.length:
                 self.positions.pop()
-
+                
+    # Reset settings after the snake runs into the boundry or itself, restarting the game with the snake localised at the center of the window 
     def reset(self):
         self.length = 3
         self.positions = [CENTER]
@@ -108,7 +131,7 @@ class Snake:
 
 
 # -----------[FOOD CLASS]--------------
-# Within the snake class, we define all features and settings of the snake
+# Within the food class, we define all features and settings of the standard food 
 class Food:
     def __init__(self):
         self.position = (0, 0)
@@ -127,17 +150,20 @@ class Food:
         pygame.draw.rect(surface, self.color, r, 40, 10)
 
 
+# We define all features and settings of the special food       
 class Specialfood():
     def __init__(self):
         self.position = (0, 0)
         self.color = YELLOW
         self.randomize_position()
 
+    # define the random position of the spcial food    
     def randomize_position(self):
         rand_x = (random.randint(0, int(GRID_WIDTH) - 1))
         rand_y = (random.randint(0, int(GRID_HEIGHT) - 1))
         self.position = (rand_x * GRID_SIZE, rand_y * GRID_SIZE)
 
+    # the special food is created, colored and shaped    
     def draw(self, surface):
         r = pygame.Rect((self.position[0], self.position[1]), (GRID_SIZE, GRID_SIZE))
         pygame.draw.rect(surface, self.color, (r), 40, 10)
@@ -156,14 +182,14 @@ class World:
     def update(self):
         self.snake.move()
         if self.snake.get_head_position() == self.food.position:
-            self.snake.length += 1
-            self.snake.score += 1
+            self.snake.length += 1  #increase length of snake by 1 when eating the standard food
+            self.snake.score += 1  #increase score of the game by 1 when eating the standard food
             self.food.randomize_position()
             pick_up_sound.play()  # sound effect when snake picks up food
 
         if self.snake.get_head_position() == self.specialfood.position:
-            self.snake.length += 3
-            self.snake.score += 5
+            self.snake.length += 3  #increase length of snake by 1 when eating the special food
+            self.snake.score += 5  #increase score of the game by 5 when eating the special food
             self.specialfood.randomize_position()
             pick_up_sound.play()  # sound effect when snake picks up food
 
@@ -208,7 +234,7 @@ def run():
 
     clock = pygame.time.Clock()
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-    pygame.display.set_caption("SNAKE GAME ON STEROIDS")
+    pygame.display.set_caption("SNAKE GAME")
 
     # define a surface to draw on
     # creates a surface exactly the same size as the display area
@@ -274,7 +300,7 @@ def button_text(text, font, color, surface, x, y):
     surface.blit(textobj, textrect)
 
 # ---------------------[MENU]------------------------
-# neww
+# We create the starting menu
 def main_menu():
     while True:
 
@@ -284,7 +310,7 @@ def main_menu():
         mx, my = pygame.mouse.get_pos()
 
         # Creating the buttons
-        # We use the virtual property of rect and assign its center to the middle of the screen
+        # We use the virtual property of rect and assign its center to the middle of the screen, define its size and color
 
         button_1 = pygame.Rect(0, 0, 200, 75)
         button_1.center = ((SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2))
@@ -292,8 +318,7 @@ def main_menu():
 
         button_2 = pygame.Rect(0, 0, 200, 75)
         button_2.centerx = ((SCREEN_WIDTH / 2))
-        button_2.centery = ((
-                                button_1.centery) + button_1.height * 1.5)  # We distanciate the second button by the lenght of exaclty 0.5 button
+        button_2.centery = ((button_1.centery) + button_1.height * 1.5)  # We distanciate the second button by the lenght of exaclty 0.5 button
 
         pygame.draw.rect(screen, RED, button_1)
         pygame.draw.rect(screen, RED, button_2)
@@ -337,7 +362,7 @@ def options():
     while running:
         screen.fill((0, 0, 0))
         mx, my = pygame.mouse.get_pos()
-        # Text for options menu
+        # Text for options menu (within the instruction button)
         Title = center_text('Options', font, WHITE, screen, 20, 20)
         Info_1 = center_text('Eat fruit to get longer', font, WHITE, screen, SCREEN_WIDTH / 2,
                              SCREEN_HEIGHT - 30 * 12)
@@ -346,15 +371,14 @@ def options():
         Info_3 = center_text('Five points', font, WHITE, screen, SCREEN_WIDTH / 2,
                              SCREEN_HEIGHT - 30 * 8)
 
-        # Images/symbols describing the text
-
+        # Images/symbols of the food items next to the desciption
         normal_food_sym = pygame.Rect(0, 0, 25, 25)
         normal_food_sym.midleft = 100, SCREEN_HEIGHT - 30 * 10
-        pygame.draw.rect(screen, RED, normal_food_sym)
+        pygame.draw.rect(screen, RED, normal_food_sym, 40, 10)
 
         special_food_sym = pygame.Rect(0, 0, 25, 25)
         special_food_sym.midleft = 100, SCREEN_HEIGHT - 30 * 8
-        pygame.draw.rect(screen, YELLOW, special_food_sym)
+        pygame.draw.rect(screen, YELLOW, special_food_sym, 40, 10)
 
         # Back button
         Back_button = pygame.Rect(0, 0, 150, 50)
