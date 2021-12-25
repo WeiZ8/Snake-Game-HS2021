@@ -37,7 +37,7 @@ The gaming interface shows the score at the top left corner. To play the game th
 
 ![Screen Shot 2021-12-22 at 6 04 14 PM](https://user-images.githubusercontent.com/95411649/147129734-70e7d2b5-4904-43d9-8158-c01ba53d5260.png)
 
-Once the snake runs into the border or avatar itself, the game restarts automatically.
+Once the snake runs into the border or avatar itself, the game restarts automatically with the snake positioned in the center of the window.
 
 **OR**
 
