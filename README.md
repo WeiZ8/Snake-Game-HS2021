@@ -15,7 +15,6 @@ Group ID:  108
 ## Introduction
 This project is part of the mandatory curriculum of the course “7,789 | 8,789: Skills: Programming with Advanced Computer Languages” supervised by Dr. Mario Silic at the University of St. Gallen. It was created by a group of students consisting of six people namely Deniz Süzen (17-609-066), Hyungmin Koh (13-615-893), Jonas Rusca (17-606-997), Nurel Yilmaz (15-608-458), Samuel Bissegger (15-714-736) and Wei Zheng (15-617-400).
 
-
 ## Project-Description
 This project aims to build a simple and fun “Snake” game with some individualized features using the programming language Python. Snake is a bordered plane game, designed in the time of the arcade game blockade in the late 1970ies. The game design is set up to maneuver three dots, and later a growing line in direction of tokens. The objective of the game is to eat as many tokens as possible. At the same time, the player must not touch the walls or collide with the player's avatar itself. Else the game ends and the player is forced to attempt anew. We decided on applying both features, the collision with the border of the window and the avatar itself.
 
@@ -23,9 +22,10 @@ To the ends of the creation of the game, Pygame was utilized. PyGame is an open-
 
 The game starts with a title screen where the user can refer to the “instructions” if needed. To start the game, the player has to press “Play”. To leave the game, the player just has to close the window. 
 
+
 <p float="left">
-  <img src="/https://user-images.githubusercontent.com/95411649/147395033-027b0334-68f8-4c7e-875d-bca1fac15532.png" width="100" />
-  <img src="/https://user-images.githubusercontent.com/95411649/147395008-8b8c1974-fd0e-42a5-858b-2778bd32d376.png" width="100" /> 
+  <img src="/![Main_Menu](https://user-images.githubusercontent.com/95411649/147395110-d6d773a6-3bb9-49dc-8b27-6f2ecc976065.png)" width="100" />
+  <img src="/![Instructions](https://user-images.githubusercontent.com/95411649/147395116-809cd5c9-c1a8-4249-9095-456780d1250c.png)" width="100" /> 
 </p>
 
 
