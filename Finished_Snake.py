@@ -379,6 +379,7 @@ def run():
 #----GAME OVER----
 #game over scene, this takes the score to display as the argument
 def game_over(scored):
+    game_over_sound.play()
     while 1:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
