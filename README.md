@@ -34,6 +34,7 @@ The gaming interface shows the score at the top left corner. To play the game th
 * Third is the background music added which loops throughout the game. 
 * Fourth is the chessboard-like background.  
 * Fifth are sound effects played once a food item is eaten or when the snake collides with itself or the boundary. 
+* Sixth is the end game menu with "Your Score" displayed on the screen. 
 
 <p float="left">
   <img src="/Game Play.png" width="440" />
