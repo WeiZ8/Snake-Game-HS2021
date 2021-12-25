@@ -41,7 +41,7 @@ The gaming interface shows the score at the top left corner. To play the game th
   <img src="/Game Over.png" width="440" /> 
 </p>
 
-Once the snake runs into the border or into itself, the game over screen pops up and shows the reached score. The player can choose to restart the game by clicking the “play game” button or choose to exit the game by selecting “quit game” or closing the window directly. 
+Once the snake runs into the border or into itself, the game over screen pops up and shows the reached score. The player can choose to restart the game by clicking the “play” button after the title screen appears again after a few seconds or choose to exit the game by closing the window directly. 
 
 ## Repository
 The repository shows 5 files. The “README.md” file gives an overall introduction and project description with screenshots showing the gaming interfaces. “Snake-Game-HS2021.py” contains the code. “Ding.mp3” and “game_over.mp3” are used for the sound effects. “Snake Game – Theme Song.mp3” is used for the background music. 
