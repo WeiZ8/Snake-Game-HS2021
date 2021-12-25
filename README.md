@@ -13,7 +13,7 @@ Group ID:  108
 
 
 ## Introduction
-This project is part of the mandatory curriculum of the course “7,789 | 8,789: Skills: Programming with Advanced Computer Languages” supervised by Dr. Mario Silic at the University of St. Gallen. It was created by a group of students consisting of six people namely Deniz Süzen, Hyungmin Koh, Jonas Rusca, Nurel Yilmaz, Samuel Bissegger and Wei Zheng.
+This project is part of the mandatory curriculum of the course “7,789 | 8,789: Skills: Programming with Advanced Computer Languages” supervised by Dr. Mario Silic at the University of St. Gallen. It was created by a group of students consisting of six people namely Deniz Süzen (17-609-066), Hyungmin Koh (13-615-893), Jonas Rusca (17-606-997), Nurel Yilmaz (15-608-458), Samuel Bissegger (15-714-736) and Wei Zheng (15-617-400).
 
 
 ## Project-Description
