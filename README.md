@@ -37,6 +37,10 @@ The gaming interface shows the score at the top left corner. To play the game th
 
 ![Screen Shot 2021-12-22 at 6 04 14 PM](https://user-images.githubusercontent.com/95411649/147129734-70e7d2b5-4904-43d9-8158-c01ba53d5260.png)
 
+Once the snake runs into the border or avatar itself, the game restarts automatically.
+
+**OR**
+
 Once the snake runs into the border or avatar itself, the game over screen pops up and shows the reached score. The player can choose to restart the game by clicking the “replay game” button or choose to exit the game by selecting “quit game” or closing the window directly. 
 
 ## Repository
