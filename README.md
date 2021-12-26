@@ -27,7 +27,7 @@ The game starts with a title screen where the user can refer to the “instructi
   <img src="/Instructions.png" width="420" /> 
 </p>
 
-The gaming interface shows the score at the top left corner. To play the game the user steers the snake, which is the green line consisting of 3 blocks, using the arrow keys. We based our code on various codes from different creators, such as Wajiha Urooj (https://www.edureka.co/blog/snake-game-with-pygame/), kiteco (https://github.com/kiteco/python-youtube-code) and Grape Juice (https://dev.to/grapejuice/getting-started-with-pygame-making-a-snake-game-2i1g). In addition to the base code, we have implemented **six  additional features**: 
+The gaming interface shows the score at the top left corner. To play the game the user steers the snake, which is the green line consisting of 3 blocks, using the **arrow keys**. We based our code on various codes from different creators, such as Wajiha Urooj (https://www.edureka.co/blog/snake-game-with-pygame/), kiteco (https://github.com/kiteco/python-youtube-code) and Grape Juice (https://dev.to/grapejuice/getting-started-with-pygame-making-a-snake-game-2i1g). In addition to the base code, we have implemented **six  additional features**: 
 
 * First, we created a title screen that shows the main menu with 2 buttons “Play” and “Instructions”. When you click on instructions, it shows the color and score properties of the foods.
 * Second is the feature of the two types of “food” added to the game. Starting with the regular red food item that increases the length of the body by 1 block and the score by 1 point after being eaten. The other is a special item that increases the length of the snake by 3 blocks but also increases the score by 5 extra points and is colored yellow.
