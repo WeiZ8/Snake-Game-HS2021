@@ -42,7 +42,7 @@ screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 font = pygame.font.SysFont("comicsans", 30)
 pygame.display.set_caption('Snake Game')
 
-FPS = 10  # 10ticks per second
+FPS = 9  # 9ticks per second
 
 # Snake will always start in the center
 CENTER = ((SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2))
