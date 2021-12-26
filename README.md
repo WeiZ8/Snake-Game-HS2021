@@ -46,7 +46,7 @@ Once the snake runs into the border or into itself, the game over screen pops up
 ## Repository
 The repository shows 5 files. The “README.md” file gives an overall introduction and project description with screenshots showing the gaming interfaces. “Snake-Game-HS2021.py” contains the code. “Ding.mp3” and “game_over.mp3” are used for the sound effects. “Snake Game – Theme Song.mp3” is used for the background music. 
 
-In case you are using jupyter notebook to run the code, please ensure that the code, sound, and background music files are located in the same folder for the code to run smoothly. 
+In case you are using jupyter notebook or visual studio code to run the code, please ensure that the code, sound, and background music files are located in the same folder for the code to run smoothly. 
 
 ## Installations
 The following programs were used to analyse and test the code:
