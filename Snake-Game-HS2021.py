@@ -37,10 +37,10 @@ GRID_SIZE = 20  # 20 pixels allows us to get 24 grid squares across 25 grid squa
 GRID_WIDTH = SCREEN_WIDTH / GRID_SIZE
 GRID_HEIGHT = SCREEN_HEIGHT / GRID_SIZE
 
-clock = pygame.time.Clock()
+clock = pygame.time.Clock() # This will be used further in the main logic of the game to change the speed of the snake.
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 font = pygame.font.SysFont("comicsans", 30)
-pygame.display.set_caption('Snake Game')
+pygame.display.set_caption('Snake Game') # displays the caption on the top of your screen.
 
 FPS = 9  # 9ticks per second
 
@@ -83,7 +83,7 @@ def button_text(text, font, color, surface, x, y):
 def main_menu():
     while True:
         
-        screen.fill(BLACK)
+        screen.fill(BLACK) # This function takes the RGB values of color as argument and fills the whole screen with that color.
         center_text('Main Menu', font, WHITE, screen, 40, 40)
         
         mx, my = pygame.mouse.get_pos()
