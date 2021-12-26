@@ -23,8 +23,8 @@ To the ends of the creation of the game, Pygame was utilized. PyGame is an open-
 The game starts with a title screen where the user can refer to the “instructions” if needed. To start the game, the player has to press “Play”. To leave the game, the player just has to close the window. 
 
 <p float="left">
-  <img src="/Main_Menu.png" width="440" />
-  <img src="/Instructions.png" width="440" /> 
+  <img src="/Main_Menu.png" width="420" />
+  <img src="/Instructions.png" width="420" /> 
 </p>
 
 The gaming interface shows the score at the top left corner. To play the game the user steers the snake, which is the green line consisting of 3 blocks, using the arrow keys. We based our code on various codes from different creators, such as Wajiha Urooj (https://www.edureka.co/blog/snake-game-with-pygame/), kiteco (https://github.com/kiteco/python-youtube-code) and Grape Juice (https://dev.to/grapejuice/getting-started-with-pygame-making-a-snake-game-2i1g). In addition to the base code, we have implemented **six  additional features**: 
@@ -37,8 +37,8 @@ The gaming interface shows the score at the top left corner. To play the game th
 * Sixth is the end game menu with "Your Score" displayed on the screen. 
 
 <p float="left">
-  <img src="/Game Play.png" width="440" />
-  <img src="/Game Over.png" width="440" /> 
+  <img src="/Game Play.png" width="420" />
+  <img src="/Game Over.png" width="420" /> 
 </p>
 
 Once the snake runs into the border or into itself, the game over screen pops up and shows the reached score. The player can choose to restart the game by clicking the “play” button after the title screen appears again after a few seconds or choose to exit the game by closing the window directly. 
