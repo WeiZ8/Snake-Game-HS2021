@@ -57,7 +57,7 @@ The following programs were used to analyse and test the code:
 The following packages and modules are REQUIRED to run the code: 
 * pygame, time, sys, random, typing
 
-In case these packages are not installed yet, please run “pip install” for each package. If pip is not installed yet, please run "python get-pip.py" first.
+In case these packages are not installed yet, please write the given command on your command prompt. If pip is not installed yet, please run "python get-pip.py" first.
 * pip install pygame
 * pip install random
 
